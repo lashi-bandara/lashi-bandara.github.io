@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Site settings
 title: Lashi Bandara
 description: "Lashi Bandara"
@@ -22,3 +23,6 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+=======
+theme: jekyll-theme-cayman
+>>>>>>> 46e8eb67f9f24a53bdca1a69b683bd9c59675be4
