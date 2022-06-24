@@ -1,0 +1,867 @@
+<div id="content">
+<h1 class="title">Geodesics and Exponential Map</h1>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org27e205c" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>References</a>
+</h3>
+</div>
+<div id="notes-section-org27e205c" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><a href="http://pabryan.github.io/pdf/teaching/dg/dg.pdf">DG Notes</a> Weeks 07 and 08</li>
+<li>Riemannian Geometry: a Modern Introduction by Chavel I.6, I.7</li>
+<li><a href="http://myweb.rz.uni-augsburg.de/~eschenbu/comparison.pdf">Comparison Geometry</a> by Eschenburg, Section 1.</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org29abb58" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Metric Structure</a>
+</h3>
+</div>
+<div id="notes-section-org29abb58" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-2">
+<div class="defn">
+<p>
+The length of a smooth path \(\gamma : [a, b] \to M\) is
+\[
+L(\gamma) = \int_a^b \sqrt{g_{\gamma(t)}(\gamma'(t), \gamma'(t))} dt.
+\]
+</p>
+
+</div>
+
+<p>
+Here \(g_x\) is the metric at the point \(x \in M\). If we define
+\[
+\lvert \gamma' \rvert_g = \sqrt{g_{\gamma(t)}(\gamma'(t), \gamma'(t)})
+\]
+we may write more briefly
+\[
+L(\gamma) = \int_a^b |\gamma'| dt
+\]
+where we dropped the subscript \(g\) because it's tedious to include it every time we write it out! There will usually only be one metric under consideration so this convention won't cause any confusion. If there is more than one metric under consideration, then we will be explicit with subscripts.
+</p>
+
+<div class="defn">
+<p>
+A metric (i.e. distance function not Riemannian metric!) on \((M, g)\) is given by
+\[
+d_g (x, y) = \inf\{L(\gamma) : \gamma(0) = x, \gamma(1) = y\}.
+\]
+</p>
+
+</div>
+
+<p>
+Again, typically we will drop the subscript in \(d_g\) and just write \(d\) except when any confusion might occur.
+</p>
+
+<ul class="org-ul">
+<li>The metric topology on \(M\) induced by \(d\) is the same as the manifold topology.</li>
+</ul>
+
+<div class="defn">
+<p>
+The Riemannian manifold \((M, g))\) is <i>complete</i> if the metric space \((M, d)\) is a complete metric space.
+</p>
+
+</div>
+
+<ul class="org-ul">
+<li>All our Riemannian manifolds will be complete.</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orga8c2813" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Geodesics</a>
+</h3>
+</div>
+<div id="notes-section-orga8c2813" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-3">
+<p>
+We'll parametrise our curves over \([0, 1]\) for convenience. Geometric quantities are independent of the parametrisation so this will not result in any loss of generality.
+</p>
+
+<div class="defn">
+<p>
+A smooth curve \(\gamma : [0, 1] \to M\) is a geodesic if
+\[
+\nabla_{\gamma'} \gamma' = 0.
+\]
+</p>
+
+</div>
+
+<ul class="org-ul">
+<li>Geodesics have zero acceleration.</li>
+<li>Equivalently, the velocity vector to a geodesic is <i>parallel</i> along the geodesic.</li>
+</ul>
+
+<div class="lem">
+<p>
+Geodesics have constant speed. That is \(|\gamma'| \equiv \text{const}\).
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+By metric compatibility we have
+\[
+\partial_t |\gamma'(t)|^2 = \partial_{\gamma'} g(\gamma', \gamma') = 2 g(\nabla_{\gamma'} \gamma', \gamma') = 0.
+\]
+</p>
+
+</div>
+
+<p>
+One question might come to mind: do any geodesics exist? If so, how many? What there properties? We'll answer the first two questions here and consider the third question in the next sections.
+</p>
+
+<div class="lem">
+<p>
+Let \(x \in M\) and \(X \in T_x M\). Then there exists a unique geodesic \(\gamma\) defined on a maximal interval \([0, T)\) such that
+\[
+\gamma(0) = x, \quad \gamma'(0) = X.
+\]
+</p>
+
+</div>
+
+<p>
+Here it could be that \(T\) is finite or that \(T = \infty\). The uniqueness here refers to the maximal interval. That is, if \(\sigma\) is a geodesic with \(\sigma(0) = x\) and \(\sigma'(0) = X\) defined on \([0, S)\), then \(S \leq T\) and \(\sigma(t) = \gamma(t)\) for all \(t \in [0, S)\).
+</p>
+
+<p>
+The proof is about ODE's on manifolds which are typically done in local coordinates. A coordinate free proof can be given by considering the <i>geodesic flow</i> on the tangent bundle. This is quite an important perspective that we will consider in <a href="#org6c89701">Exponential Map</a> to obtain smooth dependence on \(x\) and \(X\). I don't know how to produce a coordinate free proof without working on the tangent bundle since the geodesic ODE is a second order system and to turn it into a system of first order ODE's in order to apply local existence and uniqueness theory, one defines variables \(V = &gamma;') which is in the tangent bundle. Let me know if there's another way to do it coordinate free!
+</p>
+
+<div class="proof">
+<p>
+In local coordinates, write \(\gamma(t) = (\gamma^1(t), \dots, \gamma^n(t))\) and
+\[
+\dot{\gamma} := \partial_t \gamma = \dot{\gamma}^i \partial_i
+\]
+where the Einstein summation convention is used. Here it's convenient to use a dot rather than a prime to denote derivatives because of the superscripted indices \(i\). Otherwise, it looks rather messy.
+</p>
+
+<p>
+Then
+</p>
+\begin{align*}
+\nabla_{\dot{\gamma}} \dot{\gamma} &= \partial_{\dot{\gamma}} (\dot{\gamma}^i) \partial_i + \dot{\gamma}^i \nabla_{\dot{\gamma}} \partial_i \\
+&= \ddot{\gamma}^i \partial_i + \dot{\gamma}^i \dot{\gamma}^j \nabla_{\partial_j} \partial_i \\
+&= \ddot{\gamma}^i \partial_i + \dot{\gamma}^i \dot{\gamma}^j \Gamma_{ij}^k \partial_k.
+\end{align*}
+<p>
+where \(\Gamma_{ij}^k = \nabla_{\partial_i} \partial_j\) are the Christoffel symbols of the connection. These are smooth, real valued functions indexed by \(1 \leq i,j,k \leq n\) defined on a coordinate patch <i>independently of \(\gamma\)</i>. But keep in mind that they vary from point to point and are evaluated here at \(\gamma(t)\).
+</p>
+
+<p>
+Also keep in mind that there are sums here in \(i, j, k\) whenever an index is repeated in a superscript and a subscript. Relabeling the indices (\(i \leftrightarrow k\) in the second sum) and grouping together the coefficients of \(\partial_i\) we get
+\[
+\nabla_{\dot{\gamma}} \dot{\gamma} = \left(\ddot{\gamma} + \dot{\gamma}^k \dot{\gamma}^j \Gamma_{kj}^i(\gamma^1, \dots, \gamma^n))\right) \partial_i.
+\]
+</p>
+
+<p>
+Thus \(\gamma = (\gamma^1, \dots, \gamma^n)\) is a geodesic if and only if it satisfies the second order, non-linear system of ODE's
+\[
+\ddot{\gamma}^i(t) + \Gamma_{kj}^i(\gamma^1(t), \dots, \gamma^n(t)) \dot{\gamma}^k(t) \dot{\gamma}^j(t) = 0.
+\]
+with \(1 \leq i \leq n\).
+</p>
+
+<p>
+The assertion of the lemma is then that given any \(x = (x^1, \cdots, x^n)\) in coordinates and \(X = X^i \partial_i\) there exists a unique solution to the initial value problem
+</p>
+\begin{cases}
+\ddot{\gamma}^i + \Gamma_{kj}^i(\gamma^1, \dots, \gamma^n) \dot{\gamma}^k \dot{\gamma}^j &= 0 \\
+\gamma^i(0) &= x^i \\
+\dot{\gamma}^i (0) &= X^i.
+\end{cases}
+
+<p>
+As a first order system of ODE's obtained by introducing \(V^i = \dot{\gamma}^i\) we have
+</p>
+\begin{cases}
+\begin{pmatrix}
+\dot{\gamma}^i \\
+\dot{V}^i
+\end{pmatrix}
+&=
+\begin{pmatrix}
+V^i \\
+- \Gamma_{kj}^i(\gamma^1, \dots, \gamma^n) V^k V^j
+\end{pmatrix}
+\\
+\gamma^i(0) &= x^i \\
+V^i (0) &= X^i.
+\end{cases}
+
+<p>
+Existence and uniqueness is now guaranteed by the <a href="https://en.wikipedia.org/wiki/Picard%E2%80%93Lindel%C3%B6f_theorem">Picard–Lindelöf theorem</a> which states that since the right hand side in parentheses is a smooth function of \(\gamma^i, V^j\) and is in particular Lipschitz, a unique solution exists on a maximal interval \([0, T)\).
+</p>
+
+<p>
+One issue is that the solution so obtained is defined in the chart and it may in fact leave the chart whence we can no longer use the inverse chart map to transfer the solution to \(M\). However, we simply use a new chart and existence and uniqueness ensures there exists a unique extension into this chart. Now one uses an open set/continuity argument to complete the details of the proof.
+</p>
+
+</div>
+
+<div class="ex">
+<p>
+Fill in the details of the open set/continuity argument.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgf3c431a" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Geodesics are Critical Points for the Length Functional</a>
+</h3>
+</div>
+<div id="notes-section-orgf3c431a" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-4">
+<p>
+We say that a curve \(\gamma\) is <i>length minimising</i> if
+\[
+L(\gamma) = d(\gamma(0), \gamma(1)).
+\]
+That is, the length of \(\gamma\) realises the infimum in the definition of \(d\).
+</p>
+
+<p>
+Now is a good time to state a theorem.
+</p>
+
+<div class="thm">
+<p>
+Suppose \(\gamma\) is length minimising. Then \(\gamma\) is a geodesic. Conversely, every geodesic is locally length minimising in the sense that for all \(t_0 \in [0, 1]\), there is an \(\epsilon > 0\) such that \(\gamma\) restricted to \([0, 1] \cap \{|t - t_0| < \epsilon\}\) is length minimising.
+</p>
+
+</div>
+
+<p>
+For now we just give a proof of the first part since it involves calculating variations of curves which will be important later so this is a good opportunity to get accustomed to such variations.
+</p>
+
+<p>
+The proof of the second part is more delicate and will be discussed below in <a href="#org6c89701">Exponential Map</a>.
+</p>
+
+<p>
+The first part follows immediately from the following:
+</p>
+
+<div class="lem">
+<p>
+The Euler-Lagrange equation for the length function with fixed end points is precisely the geodesic equation.
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+A <i>variation</i> of \(\gamma\) is a map
+\[
+F : [0, 1] \times (-\epsilon, \epsilon) \to M
+\]
+such that
+\[
+F(t, 0) = \gamma(t).
+\]
+We restrict to variations that preserve the end points:
+\[
+F(0, s) = \gamma(0), \quad F(1, s) = \gamma(1).
+\]
+</p>
+
+<p>
+Define
+\[
+\gamma_s(t) = F(t, s).
+\]
+Then \(\gamma_0 = \gamma\) and \(\gamma_s(0) = \gamma_0(0)\), \(\gamma_s(1) = \gamma_0(1)\).
+</p>
+
+<p>
+The curve \(\gamma\) is a <i>critical point</i> for \(L\) among variations with fixed endpoints precisely when
+\[
+\partial_s|_{s=0} L(\gamma_t) = 0
+\]
+for all variations with \(\gamma_0 = \gamma\). That is, precisely when <i>the first variation of \(L\) vanishes at \(s = 0\)</i>. Now we compute this variation. For notation, let's write
+\[
+T(s, t) = F_{\ast} \partial_t = \partial_t F (s, t), \quad S(s, t) = F_{\ast} \partial_s = \partial_s F.
+\]
+Thus is \(T_0(t) := T(0, t) = \gamma'(t)\) is the velocity vector to \(\gamma\) and \(S_0(t) = S(0, t)\) is the variation vector field along \(\gamma\). Note also that \(T_0\) satisfies \(|T_0| = L(\gamma)\) because geodesics are parametrised with constant speed.
+</p>
+
+<p>
+Now we compute, using metric compatability
+\[
+\partial_s|_{s=0} \int_0^1 \sqrt{g(T, T)} dt = \int_0^1 \frac{1}{\sqrt{g(T_0, T_0)}} g(\nabla_S T, T)|_{s=0} dt = \frac{1}{L(\gamma)} \int_0^1 g(\nabla_S T, T)|_{s=0} dt.
+\]
+Then we commute derivatives using
+\[
+\nabla_S T - \nabla_T S = [S, T] = [F_{\ast} \partial_s, F_{\ast} \partial_t] = F_{\ast} [\partial_s, \partial_t] = 0
+\]
+to get
+\[
+\partial_s L_s|_{s=0} = \frac{1}{L(\gamma)} \int g(\nabla_T S, T)|_{s=0} dt = \frac{1}{L(\gamma)} \int g(\nabla_{T_0} S_0, T_0) dt.
+\]
+</p>
+
+<p>
+Notice that by commuting derivatives we may evaluate at \(s=0\) because now we are differentiating with respect to \(t\) and not \(s\). Then we use metric compatability once more to move the derivatives off the variation vector
+</p>
+\begin{align*}
+\partial_s L_s|_{s=0} &= \frac{1}{L(\gamma)} \int \partial_t [g(S_0, T_0)] dt - g(S_0, \nabla_{T_0} T_0) dt \\
+&= g(S_0, T_0)|_{t=0}^1 - \frac{1}{L(\gamma)} \int g(S_0, \nabla_{T_0} T_0) dt.
+\end{align*}
+
+<p>
+But notice that since our variation fixes the endpoints,
+\[
+S_0(0) = \partial_s|_{s=0} F(0, s) = \partial_s|_{s=0} \gamma(0) = 0
+\]
+and similarly \(S_0(1) = 0\).
+</p>
+
+<p>
+Therefore,
+\[
+\partial_s L_s|_{s=0} = - \frac{1}{L(\gamma)} \int g(S_0, \nabla_{T_0} T_0) dt.
+\]
+In other words,
+\[
+dL_{\gamma} (S_0) = -\frac{1}{L(\gamma)} \int g(\nabla_{T_0} T_0, S_0) dt.
+\]
+</p>
+
+<p>
+Since \(dL_{\gamma} (S_0) = 0\) for every vector field \(S_0\) along \(\gamma\) with \(S(0) = 0, S(1) = 0\), we find that
+\[
+\nabla_{\gamma'} \gamma' = \nabla_{T_0} T_0 = 0
+\]
+and hence \(\gamma\) is a geodesic.
+</p>
+
+</div>
+
+<p>
+The first part of the length minimisation theorem - that if a curve \(\gamma\) minimises length then it is a geodesic - follows since then for any variation fixing the endpoints, each \(\gamma_s\) has the same endpoints as \(\gamma\) which minimises length between these points. Thus the function
+\[
+s \mapsto L_s := L(\gamma_s)
+\]
+has a local minimum at \(s = 0\) and the first derivative test implies
+\[
+\partial_s|_{t=0} L_s = 0.
+\]
+The lemma now applies to conclude that \(\gamma\) is a geodesic.
+</p>
+
+<ul class="org-ul">
+<li>A few of the steps above weren't fully justified so here are some exercises to justify them.</li>
+</ul>
+
+<p>
+First, given a \(\gamma\), variations may be constructed in several ways.
+</p>
+
+<div class="ex">
+<p>
+Show that there exist variations of \(\gamma\), and in particular that there are variations fixing the endpoints. <i>Hint</i>: By the implicit function theorem we can always choose a chart \(\varphi : U \to \mathbb{R}^n\) for \(M\) such that \(\gamma \cap U\) is mapped to a coordinate axis \(x^2 = \cdots = x^n = 0\). Then define a variation of \(\gamma\) in coordinates and transfer back to \(M\) by the inverse of the chart. This produces just a local variation. To get a variation of all \(\gamma\), cover it by charts and patch together the local variations using a partition of unity.
+</p>
+
+</div>
+
+<p>
+Recall that a vector field \(V\) along \(\gamma\) is a map \(V : [0, 1] \to TM\) such that \(\pi(V(t)) = \gamma(t)\). Or in other words such that \(V(t) \in T_{\gamma(t)} M\) for each \(t\).
+</p>
+
+<div class="ex">
+<p>
+Show that for a vector field \(V\) along \(\gamma\) with \(V(0) = 0, V(1) = 0\), if
+\[
+\int_0^1 g(V(t), S(t)) dt = 0
+\]
+for every vector field \(S\) along \(\gamma\), then \(V \equiv 0\). <i>Hint</i>: Try \(S(t) = \rho(t) V(t)\) where \(\rho : [0, 1] \to \mathbb{R}\).
+</p>
+
+</div>
+
+<div class="ex">
+<p>
+Show that given a vector field \(S\) along \(\gamma\), there exists a variation of \(\gamma\) with variation field \(S\). <i>Hint</i>: You need to define for each \(t\), a curve \(\alpha_t(s)\) such that \(\alpha_t(0) = \gamma(t)\) and \(\alpha_t'(0) = S(t)\). This must be done is such a way that the map
+\[
+F(t, s) = \alpha_t(s)
+\]
+depends smoothly on \(t\) and each \(\alpha_t\) is defined for \(s \in (-\epsilon, \epsilon)\) independently of \(t\). Compactness of \(\gamma([0, 1])\) should help here.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org6c89701" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Exponential Map</a>
+</h3>
+</div>
+<div id="notes-section-org6c89701" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-5">
+<p>
+Given the existence and uniqueness result for the geodesic equation, we define \(\gamma_X\) to be the unique geodesic such that \(\gamma_X(0) = \pi(X) = x\) and \(\gamma_X'(0) = X\). Then we have the following homogeneity result:
+</p>
+
+<div class="lem">
+<p>
+Given any \(X \in TM\) and \(\lambda \in \mathbb{R}\), we have
+\[
+\gamma_{\lambda X} (t) = \gamma_X (\lambda t).
+\]
+</p>
+
+</div>
+
+<div class="ex">
+<p>
+Prove the lemma! <i>Hint</i>: Show that both sides of the equality satisfy the same ODE and use the uniqueness result.
+</p>
+
+</div>
+
+<div class="defn">
+<p>
+Let \(X \in TM\) be such that \(\gamma_X\) defined at \(t = 1\). Write
+\[
+D = \{X \in TM : \gamma_X(1) \text{ is defined}\}.
+\]
+The <i>exponential map</i> is the map
+\[
+\exp : X \in D \mapsto \gamma_X(1).
+\]
+We call \(D\) the <i>domain</i> of \(\exp\). For each \(x \in M\) we also write
+\[
+\exp_x = \exp_{T_x M \cap D}
+\]
+for the exponential map based at \(x\), and
+\[
+D_x = D \cap T_x M = \{X \in T_x M : \gamma_X(1) \text{ is defined}\}
+\]
+for the <i>domain</i> at \(x\).
+</p>
+
+</div>
+
+<div class="rem">
+<p>
+The homogeneity results tells us that for any \(X \in TM\), there exists a \(\lambda > 0\) such that \(\lambda X \in D\). This just follows since we know that \(\gamma_X\) is defined on some interval \(t \in [0, T)\) and then
+\[
+\gamma_X (T/2) = \gamma_{(T/2) X} (1)
+\]
+so that \((T/2) X \in D\). In fact \(\lambda X \in D\) for every \(\lambda \in [0, T)\).
+</p>
+
+</div>
+
+<p>
+A simple, but useful result is also the following.
+</p>
+
+<div class="ex">
+<p>
+Show that for \(X \in D_x M\) and \(\lambda\) such that \(\lambda X \in D_x M\) we have
+\[
+\exp(\lambda X) = \gamma_X(\lambda).
+\]
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgf7f7c31" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Gauss' Lemma</a>
+</h3>
+</div>
+<div id="notes-section-orgf7f7c31" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-6">
+<p>
+Gauss' Lemma is an extremely important result we employ when analysing the exponential map. It may be briefly stated that the exponential map is a <i>radial isometry</i>.
+</p>
+
+<div class="lem">
+<p>
+[Gauss' Lemma]
+Let \(x \in M\), fix \(v \in T_x M\) and let \(\gamma_v\) be the corresponding geodesic. For any \(w \in T_x M\), let \(W(t) = d\exp_x|_{tv} \cdot W\). Then
+\[
+g(\gamma_v'(t), W(t)) = g(v, w).
+\]
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+First observe that since \(\gamma_{\lambda v}' = \lambda \gamma_v'\), we may assume that \(g_x(v, v) = 1\). Let us write, \(|v|_g = \sqrt{g_x(v,v)}\). Next notice that the map \((w,t) \mapsto g(\gamma_v'(t), W(t))\) is linear in \(w\) and so it suffices to prove the result for \(w = v\) and also for \(w \perp v\) with \(|w|_g = 1\).
+</p>
+
+<p>
+First, if \(w = v\), then
+\[
+W(t) = d\exp_x|_{tv} \cdot w = \partial_s|_{s=0} \exp_x(tv + sv) = \partial_s|_{s=0} \gamma_v(t+s) = \gamma_v'(t).
+\]
+From metric compatibility,
+\[
+\partial_t g(\gamma_v'(t), W(t)) = \partial_t g(\gamma_v'(t), \gamma_v'(t)) = 2g(\nabla_{\gamma_v}' \gamma_v', \gamma_v') = 0
+\]
+since \(\gamma_v\) is a geodesic. Therefore \(g(\gamma_v', W)\) is constant in the case \(w = v\).
+</p>
+
+<p>
+Now suppose that \(w \in T_x M\) such that \(|w|_g = 1\) and \(g_x(w, v) = 0\). Define,
+\[
+F(t, \theta) = \exp_x(t(\cos\theta v + \sin\theta w)) = \gamma_{\cos\theta v + \sin\theta w} (t),
+\]
+for \(\theta\) sufficiently small so that \(\exp_x(t(\cos\theta v + \sin\theta w))\) is defined. For each fixed \(t\), \(F(t, \theta)\) traces out an arc of a curve in \(T_x M\) such that
+\[
+\vert F(t, \theta)\vert^2 = t^2 \left(\cos^2\theta|v|_g^2 + \sin^2\theta |w|_g^2\right) = t^2
+\]
+since \(v,w\) are unit length, orthogonal vectors. Let us write \(u(\theta) = \cos\theta v + \sin \theta w\) and so we also have \(|u|_g = 1\) by the same reasoning and \(F = t u(\theta)\).
+</p>
+
+<p>
+Define the vectors,
+\[
+V = F_{\ast} \partial_t, U = F_{\ast} \partial_{\theta}.
+\]
+</p>
+
+<p>
+Then we have,
+\[
+V = \partial_t \gamma_{\cos\theta v + \sin\theta w}(t) = \gamma_{u(\theta)}'(t).
+\]
+is the tangent to a geodesic. Then
+\[
+\partial_t g(V, V) = \partial_t g(\gamma_u', \gamma_u') = 2 g(\nabla_{\gamma_u'} \gamma_u', \gamma_u') = 0
+\]
+Thus \(g(V, V) = g_x(u, u) = 1\) is constant in both \(t\) and \(\theta\).
+</p>
+
+<p>
+Now using \([V, U] = 0\):
+</p>
+\begin{align*}
+\partial_t g(V, U) &= g(\nabla_V V, U) + g(V, \nabla_V U) \\
+&= g(V, \nabla_U V) \\
+&= \frac{1}{2} \partial_{\theta} g(V, V) = 0.
+\end{align*}
+<p>
+Thus \(g(V, U)\) is also constant. Now observe that when \(\theta = 0\) and \(t>0\),
+\[
+U = F_{\ast} \partial_{\theta} = d\exp_x|_{tv} \cdot (\cos\theta v + \sin\theta w)'|_{\theta = 0} =  d\exp_x|_{tv} \cdot W = W(t).
+\]
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgf1d0124" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Geodesic Flow</a>
+</h3>
+</div>
+<div id="notes-section-orgf1d0124" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-7">
+<p>
+The idea here is to split the geodesic equation into a system of second order equations. We did this in coordinates in order to prove the existence and uniqueness of the geodesic equation. Here we phrase the question as a first order system on \(TM\). That is we defined a vector field on \(TM\) and use it to deduce the existence, uniqueness and regularity properties of geodesics. The usefulness of this approach is that we may then immediately infer the smooth dependence of geodesics on the initial tangent vector (which includes smooth dependence on the base point \(x\)).
+</p>
+
+<p>
+In point of fact, such smooth dependence may be obtained by working in coordinates for \(M\) and using standard smooth dependence on parameters for ODE's. What we achieve here is an approach that works intrinsically on the manifold but is more or less equivalent to the standard proof in coordinates.
+</p>
+
+<p>
+As a result we conclude some important properties about the exponential map in <a href="#org86fae45">Regularity of Exponential Map</a>.
+</p>
+
+<p>
+To obtain an entirely coordinate free proof, one needs to phrase the connection in terms of a splitting of the map \(\pi_{\ast} : TTM \to TM\) where \(\pi_{\ast}\) is the differential of the bundle projection \(\pi : TM \to M\). Such a proof may be found for example in <a href="https://www.springer.com/gp/book/9780817641443">Geodesic Flows by Gabriel Paternain</a>. But note that here we only use coordinates to define \(G\), so all one really needs is a coordinate-independent definition of \(G\). I don't know how to do this other than as described in Paternain's book.
+</p>
+
+<p>
+Another approach is to take a Hamiltonian point of view and compute the Euler-Lagrange equation for the Hamiltonian flow on the Dirichlet energy for a curve. That is for,
+\[
+E = \frac{1}{2} \int |\gamma'(t)|^2 dt.
+\]
+This is the same as the length apart from a square root. The following exercise connects the energy and the length functions:
+</p>
+
+<div class="ex">
+<p>
+Show that critical points for the length function are precisely critical points for \(E\).
+</p>
+
+</div>
+
+<p>
+I haven't seen a coordinate independent proof that the resulting Euler-Lagrange equation is precisely the geodesic equation however. See <a href="https://terrytao.wordpress.com/tag/geodesic-flow/">Geodesic flow on Terry Tao's blog</a> for more details on this approach.
+</p>
+
+<p>
+See also <a href="https://mathoverflow.net/questions/88624/is-there-a-coordinate-free-proof-of-the-hamiltonian-character-of-the-geodesic-fl">this MathOverFlow question</a> and the references therein for some discussion on the topic and the two approaches mentioned above.
+</p>
+
+<div class="thm">
+<p>
+There exists a unique, smooth vector field \(G \in \mathfrak{X}(TM)\) such that the integral curves of \(G\) are precisely the maps
+\[
+t \mapsto \gamma'(t) \in TM
+\]
+for \(\gamma\) a geodesic.
+</p>
+
+</div>
+
+<p>
+Note that integral curves are always smooth and that \(\phi_t\) is defined on an open set \(\mathcal{U} \subseteq TM \times \mathbb{R}\). The map \(\phi_t\) is called the <i>geodesic flow</i>.
+</p>
+
+<p>
+This might seem a little odd. We are asserting the existence of a vector field on \(TM\). This makes perfect sense since \(TM\) is itself a manifold, but may be a little difficult to understand. Essentially the idea here is smooth dependence on parameters, and the way we phrase this here is to turn the second order geodesic system of ODE's on \(M\) into a system of first order ODE's on \(TM\). What then are the parameters upon which the solutions of the geodesic ODE should smoothly depend? They are precisely the tangent vectors \(v\). So in other words, for each \(v\) we obtain a unique geodesic and as we vary \(v\), the geodesics should smoothly vary. Namely, the map,
+\[
+(v, t) \mapsto \gamma_v(t)
+\]
+should be smooth in both \(t\) and \(v\). We already have smoothness in \(t\) which is just saying that \(\gamma_v\) is a smooth curve, and smooth dependence on parameters ensures smoothness in \(v\). The proof makes this precise and in so doing furnishes us with the geodesic flow.
+</p>
+
+<p>
+Since we're working on the tangent bundle, let us recall the differential structure. For \((x^1, \cdots, x^n)\) local coordinates \(\phi: U \to V\), writing \(v = v^i \partial_i\), we have coordinates on \(\pi^{-1} [U]\),
+\[
+\Phi(v) = (x^1, \cdots, x^n, v^1, \cdots, v^n)
+\]
+where \((x^1, \cdots, x^n) = \phi (\pi(v))\). Let \(\partial_i\) denote the coordinate vector field corresponding to \(x^i\) and let \(\dot{\partial}_i\) denote the coordinate vector field corresponding to \(v^i\). Thus a tangent vector \(V \in T(TM)\) to the tangent bundle may be written,
+\[
+V = V^i \partial_i + \dot{V}^i \dot{\partial}_i.
+\]
+</p>
+
+<div class="proof">
+<p>
+We do the usual thing. Write the equation for \(G\) in coordinates (on \(TM\)!) and prove existence and uniqueness in coordinates, thereby allowing us to patch together the local expressions on the coordinate overlaps.
+</p>
+
+<p>
+For \(v \in TM\), let \((x^1, \cdots, x^n) = \phi \circ \pi(v)\) denote the coordinates of the base point of \(v\) and let \((v^1,\cdots, v_n)\) denote the coordinates of the vector part, and then define
+\[
+G(v) = v^i \partial_i - v^k v^l \Gamma_{kl}^i ((x^1,\cdots,x^n)) \dot{\partial}_i.
+\]
+Before verifying this is well defined and unique, let us check that \(\phi_t(v) = \gamma_v'(t)\) is the unique integral curve of \(G\) through \(v\) where \(\gamma_v\) is the unique geodesic such that \(\gamma_v(0) = \pi(v)\) and\(\gamma_v'(0) = v\). Note that we only need to check that,
+\[
+\partial_t \phi_t (v) = G(\phi_t(v))
+\]
+since we already know that integral curves are unique and \(\phi_0(v) = \gamma_v'(0) = v\) so that \(\phi_t\) satisfies the required initial condition. 
+</p>
+
+<p>
+Now, in coordinates,
+\[
+\phi_t(x^1, \cdots, x^n, v^1, \dots, v^n) = (\gamma^1(t), \cdots, \gamma^n(t), \dot{\gamma}^1(t), \cdots, \dot{\gamma}^n(t)),
+\]
+and so
+\[
+\partial_t \phi_t (x^1, \cdots, x^n, v^1, \dots, v^n) = \dot{\gamma}^i \partial_i + \ddot{\gamma}^i \dot{\partial}_i.
+\]
+On the other hand,
+</p>
+\begin{align*}
+G(\phi_t(x^1, \cdots, x^n, v^1, \dots, v^n)) &= G((\gamma^1(t), \cdots, \gamma^n(t), \dot{\gamma}^1(t), \cdots, \dot{\gamma}^n(t))) \\
+&= \dot{\gamma}^i \partial_i - \dot{\gamma}^k \dot{\gamma}^i \Gamma_{kl}^i \dot{\partial}_i.
+\end{align*}
+<p>
+Therefore \(\partial_t \phi_t (v) = G(\phi_t(v))\) provided,
+\[
+\ddot{\gamma}^i = - \dot{\gamma}^k \dot{\gamma}^i \Gamma_{kl}^i
+\]
+and this precisely the geodesic equation. Marvellous!
+</p>
+
+<p>
+Now, existence and uniqueness of \(G\). Both are quite easy, since any vector field whose flow is \(\phi_t\) must satisfy
+\[
+G(v) = G(\phi_0(v)) = \left.\partial_t\right|_{t=0} \phi_t (v)
+\]
+so \(G\) is determined by \(\phi_t\) (this is in fact generally true - if two vector fields have the same flow then they are equal). This expression also defines \(G\) and so existence is assured.
+</p>
+
+</div>
+
+<div class="remark">
+<p>
+You may be wondering why we didn't simply define, \(G(v) = \left.\partial_t\right|_{t=0} \phi_t (v)\). The reason is that a priori, we know neither whether \(\phi_t\) is a smooth map, nor whether in fact \(\phi_t\) is the flow of any vector field! Assuming smoothness, the theory of integral curves gives a necessary condition for \(\phi_t\) to be the flow of a vector field: \(\phi_{t+s} = \phi_t \circ \phi_s\) and \(\phi_0 = \text{Id}\). You might like to think about how to prove this statement directly for \(\phi_t(v) = \gamma_v'(t)\). Of course, this doesn't help to show \(\phi_t\) is smooth. The difficulty here is that \(\phi_t(v)\) is defined as the solution of an ODE with \(v\) fixed. The proof gave us the required smooth dependence on parameters.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org86fae45" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Regularity of Exponential Map</a>
+</h3>
+</div>
+<div id="notes-section-org86fae45" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-8">
+<div class="thm">
+<ol class="org-ol">
+<li>The exponential map is smooth,</li>
+<li>The domain \(DM\) is an open neighbourhood of the zero section in \(TM\),</li>
+<li>For each \(x \in M\), there is an open neighbourhood \(U_x\) of the origin \(O \in T_x M\) such that \(\exp_x : U \to M\) is a diffeomorphism onto the open set \(V_x = \exp_x(U_x)\),</li>
+<li>For each \(x\), \(D_x M \subset T_x M\) is star-shaped. That is, for all \(v \in D_x M\), \(tv \in D_x M\) for all \(t \in [0,1]\).</li>
+<li>The each \(v \in DM\), curve \(t \mapsto \exp(t v)\) is defined for all \(t \in [0, 1]\) (and maybe other \(t\) as well) and is equal to the geodesic \(\gamma_v (t)\).</li>
+</ol>
+
+</div>
+
+<div class="proof">
+<ol class="org-ol">
+<li><p>
+The exponential map is smooth.
+</p>
+
+<p>
+The geodesic flow is a smooth map and has the property that \(\exp(v) = \gamma_v(1) = \pi \circ \phi_1(v)\) where \(\phi_t\) is the geodesic flow. This is the composition of smooth maps, hence smooth.
+</p></li>
+
+<li><p>
+The domain \(DM\) is an open neighbourhood of the zero section in \(TM\).
+</p>
+
+<p>
+For any point \(v_0 \in DM\), \(\phi_1(v_0)\) is defined and so \(\phi_t(v)\) is defined on an open set \(U \times (1-\delta, 1 + \delta) \subset \mathcal{U}\), with \(U \subset TM\) open. Hence, \(\phi_1(v)\) is defined for all \(v\) in the open neighbourhood \(U\) of \(v_0\). That is \(U\subset DM\) and hence \(DM\) is open. Now of course, \(\exp_x(0_x) = x\) where \(0_x \in T_x M\) is the zero vector. Thus the zero section, \(Z = \{0_x \in T_x M : x \in M\} \subseteq DM\).
+</p></li>
+
+<li><p>
+For each \(x \in M\), there is an open neighbourhood \(U_x\) of the origin \(O \in T_x M\) such that \(\exp_x : U \to M\) is a diffeomorphism onto the open set \(V_x = \exp_x(U_x)\).
+</p>
+
+<p>
+Let \(v \in T_x M\) and consider the curve \(\alpha (t) = tv \in T_x M\) This curve has the property that \(\alpha(0) = O\). Let \(V = [\alpha] \in T_O (T_xM)\) be the tangent vector represented by \(\alpha\). Note that every tangent vector in \(T_O(T_x M)\) may be represented this way, and so we have a map \(v \in T_x M \mapsto V = [tv] \in T_O(T_xM)\) that is in fact a vector space isomorphism.
+</p>
+
+<p>
+Now, since \(\exp_x : T_x M \to M\), the differential \(d\exp_x : T_O(T_x M) \to T_{\exp_x(O)} M = T_x M\).
+</p>
+
+<p>
+Using homogeneity, we then compute
+</p>
+\begin{align*}
+d \exp_x \cdot V &= \left.\frac{d}{dt}\right|_{t=0} \exp_x (tv) = \left.\frac{d}{dt}\right|_{t=0} \gamma_{tv} (1) \\
+&= \left.\frac{d}{dt}\right|_{t=0} \gamma_{v} (t) \\
+&= \gamma_v'(0).
+\end{align*}
+
+<p>
+But \(\gamma_v\) is the unique geodesic such that \(\gamma_v'(0) = v\) and hence,
+\[
+   d \exp_x \cdot V = v.
+   \]
+Or in other words, the composition,
+\[
+   v \in T_x M \mapsto V \in T_O(T_x M) \mapsto d \exp_x \cdot V \in T_x M
+   \]
+is the identity and hence \(d\exp_x \) is an isomorphism. The inverse function theorem furnishes us with a local, smooth inverse to \(\exp_x\).
+</p></li>
+
+<li><p>
+The each \(v \in DM\), curve \(t \mapsto \exp(tv)\) is defined for all \(t \in [0, 1]\) (and maybe other \(t\) as well) and is equal to the geodesic \(\gamma_v (t)\).
+</p>
+
+<p>
+This is more or less by definition. If \(v \in DM\), then the unique geodesic \(\gamma_v\) is defined at least for \(t \in [0, 1]\). Therefore by homogeneity,
+\[
+   \gamma_v(t) = \gamma_{tv} (1) = \exp(tv).
+   \]
+</p></li>
+
+<li><p>
+For each \(x\), \(D_x M \subset T_x M\) is star-shaped. That is, for all \(v \in D_x M\), \(tv \in D_x M\) for all \(t \in [0,1]\).
+</p>
+
+<p>
+Let \(v \in D_x M\) and \(t \in [0, 1]\). Then, by the previous part, \(\exp(tv)\) is defined and hence \(tv \in D_x M\).
+</p></li>
+</ol>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgcc8d58a" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Hopf-Rinow</a>
+</h3>
+</div>
+<div id="notes-section-orgcc8d58a" class="panel-collapse collapse">
+<div class="panel-body">
+
+</div>
+</div>
+</div>
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgf42ae6b" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Cut Locus</a>
+</h3>
+</div>
+<div id="notes-section-orgf42ae6b" class="panel-collapse collapse">
+<div class="panel-body">
+
+</div>
+</div>
+</div>
+</div>

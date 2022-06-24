@@ -1,0 +1,39 @@
+---
+layout: page
+title: Publications 
+category: Publications
+---
+
+{% for post in site.categories[page.category] %}
+<div class="panel panel-default research-panel">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-9">
+	<h1 class="panel-title" class="display-1">
+	  {{ post.title }}
+	</h1>
+	<ul class="panel-heading-ul">
+	  <li>{{ post.journal }} <a href="https://dx.doi.org/{{ post.doi }}" target="_blank">{{ post.doi}}</a></li>
+	  {% unless post.collaborators == '' %}
+	  <li>With {{ post.collaborators | join }}</li>
+	  {% endunless %}
+	</ul>
+      </div>
+
+      <div class="col-sm-3">
+	<a href="http://arxiv.org/abs/{{ post.arxiv }}" class="btn btn-social-icon btn-arxiv" target="_blank">
+	  <i class="ai ai-arxiv" alt="arxiv" title="arxiv"></i>
+	</a>
+	<a href="http://www.researchgate.com/publication/{{ post.researchgate }}" class="btn btn-social-icon btn-researchgate" target="_blank">
+	  <i class="ai ai-researchgate" alt="researchgate" title="researchgate"></i>
+	</a>
+	<a href="#abstract-{{ post.paper-id }}" class="show-hide-abstract" data-toggle="collapse">Abstract<i class="fa fa-caret-down" class="abstract-arrow" alt="Show abstract" title="Show abstract"></i></a>
+      </div>
+    </div>
+    <div id="abstract-{{ post.paper-id }}" class="collapse">
+      {{ post.excerpt }}
+    </div>
+  </div>
+</div>
+{% endfor %}
+

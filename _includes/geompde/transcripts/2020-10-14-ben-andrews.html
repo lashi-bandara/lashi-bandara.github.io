@@ -1,0 +1,276 @@
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org956b34b" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Upper Bound</a>
+</h3>
+</div>
+<div id="notes-section-org956b34b" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-1">
+<p>
+We continue proving the lemma from last week.
+</p>
+
+<div class="lemma">
+<p>
+\label{upperbound}
+Let \(K\) be any finite dimensional subspace of \(\mathcal{H}(M)\) of \(\{u \in C^{\infty}(M) : \Delta u = 0\}\). Let \(\{u_i\}_{i=1}^k\) be any orthonormal basis of \(K\) with respect to \(L^2(B_r(x))\).
+</p>
+
+<p>
+Then for any \(0 < \epsilon < 1/2\),
+\[
+\int_{B_{(1-\epsilon)r}(x)} \sum_{i=1}^k u_i^2 \leq C(n) \epsilon^{-(n-1)}.
+\]
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+<b>Recall</b>
+</p>
+
+<p>
+WLOG, \(r = 1\). If \(y \in B_{(1-\epsilon)} (x)\), then
+\[
+\sum_{i=1}^k u_i^2(y) \leq c(n) \left(\frac{1+\rho(y)}{1-\rho(y)}\right)^n \avgint_{B_1} u^2.
+\]
+Recall we rotated in \(k\) so \(u^2(y) = \sum_{i=1}^k u_i^2(y)\) and we had the normalisation \(\int_{B_1} u^2 = 1\).
+Thus
+\[
+\int_{B_{1-\epsilon}} \sum_{i=1}^k u_i^2 \leq \frac{C(n)}{\abs{B_{1-\epsilon}(x)}} \int_{B_{(1-\epsilon)} (x)} \left(\frac{1+\rho(y)}{1-\rho(y)}\right)^n.
+\]
+</p>
+
+<p>
+Now we use the Laplace comparison theorem to bump the estimate up to the desired power \(\epsilon^{-(1-n)}\). We integrate by parts on the annulus,
+</p>
+\begin{align*}
+\int_{B_{1-\epsilon} \backslash B_{1/2}} (1-\rho)^{-n} &= \int_{B_{1-\epsilon} \backslash B_{1/2}} (1-\rho)^{-n} \abs{\nabla \rho}^2 \\
+&= \frac{1}{n-1} \int_{B_{1-\epsilon} \backslash B_{1/2}} \nabla\left((1-\rho)^{-(n-1)} - \epsilon^{-(1-n)}\right) \cdot \nabla \rho \\
+&= -\frac{1}{n-1} \int_{\partial B_{1/2}} \left((1-\rho)^{-(n-1)} - \epsilon^{-(1-n)}\right) \\
+&\quad - \frac{1}{n-1} \int_{B_{1-\epsilon} \backslash B_{1/2}} \left((1-\rho)^{-(n-1)} - \epsilon^{-(1-n)} \Delta \rho \right) \\
+&\leq C\epsilon^{-(n-1)} \frac{n-1}{\rho} \leq C\epsilon^{-(n-1)} \frac{n-1}{2}
+\end{align*}
+<p>
+where we use the Bishop-Gromov again to control the size of the region of integration.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org6a18312" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Lower Bound</a>
+</h3>
+</div>
+<div id="notes-section-org6a18312" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-2">
+<p>
+Note that lemma \ref{upperbound} did not use the polynomial growth hypothesis. Now we make use of the hypothesis for the next lemma. The assumption means that such harmonic functions cannot grow too much "all the time" - a sort of converse to the previous lemma.
+</p>
+
+<div class="lemma">
+<p>
+\label{lowerbound}
+Let \(K\) be any finite dimensional subspace of \(\mathcal{H}_p(M)\) of \(\{u \in C^{\infty}(M) : \Delta u = 0, \abs{u(y)} \leq C(1 + d(y, x_0))^p\}\).
+</p>
+
+<p>
+Then for any \(x \in M\), \(\epsilon \in (0, 1/2]\), \(r_0 > 0\), \(\delta > 0\), there exists \(r > r_0\) such that if \(\{u_i\}_{i=1}^k\) is an orthonormal basis of \(K\) with respect to \(L^2(B_r(x))\), we have
+\[
+\sum_{i=1}^k \int_{B_{(1-\epsilon)r}(x)} \abs{u_i}^2 \geq k(1-\epsilon)^{2p + n + \delta} = (1-\epsilon)^{2p+n+\delta} \int_{B_r(x)} \sum_{i=1}^k u_i^2.
+\]
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+Fix \(x \in M\), \(\epsilon \in (0, 1/2]\), \(r_0 > 0\), \(\delta > 0\). The \(\delta\) is here just to give a little extra room to obtain a strict inequality.
+</p>
+
+<p>
+Define \(r_{\alpha} = r_0(1-\epsilon)^{-\alpha}\) for \(\alpha \in \NN\).
+</p>
+
+<p>
+To obtain a contradiction, suppose the claimed inequality does not hold for \(r = r_{\alpha}\). Let \(G_{\alpha}\) be the inner-product on \(K\) coming from \(L^2(B_{r_{\alpha}}(x)\). If \(\{u_i\}_{i=1}^k\) is an orthonormal basis for \(K\) with respect to \(L^2(B_{r_{\alpha}}(x)\) so \((G_{\alpha})_{ij} = \delta_{ij}\). Then
+\[
+(G_{\alpha-1})_{ij} = \int_{B_{(1-\epsilon)r_{\alpha}(x)}} u_i u_j
+\]
+hence
+\[
+\Tr (G_{\alpha}^{-1} \circ G_{\alpha-1}) = \int_{B_{(1-\epsilon)r_{\alpha}}} \sum_{i=1}^k \abs{u_i}^2 < (1-\epsilon)^{2p+n+\delta}
+\]
+by the previous lemma, \ref{upperbound}. By the arithmetic-geometric inequality,
+\[
+\det (G_{\alpha}^{-1} \circ G_{\alpha-1}) \leq (\tfrac{1}{k} \Tr (G_{\alpha}^{-1} \circ G_{\alpha-1}))^k < (1-\epsilon)^{(2\rho+n+\delta)k}.
+\]
+Thus
+</p>
+\begin{equation}
+\label{det}
+\det (G_{\alpha}^{-1} \circ G_0) = \det (G_{\alpha}^{-1} \circ G_{\alpha-1}) \det (G_{\alpha-1}^{-1} \circ G_{\alpha-2}) \det (G_{1}^{-1} \circ G_{0}) < (1-\epsilon)^{(2\rho + n+\delta)k\alpha}.
+\end{equation}
+
+<p>
+Fix an o/n basis for \(G_0\), \(\{u_i\}_{i=1}^k\) so \(\int_{B_{r_0}(x)} u_i u_j = \delta_{ij}\). Since \(u_i \in K \subseteq \mathcal{H}_p\),
+\[
+\abs{u_i(y)} \leq C (1 + d(x,y))^p.
+\]
+</p>
+
+<p>
+Again using the arithmetic-geometric inequality and Bishop-Gromov,
+</p>
+\begin{align*}
+k \det (G_0^{-1} \circ G_{\alpha})^{1/k} &\leq \Tr (G_0^{-1} \circ G_{\alpha}) = \sum_{i=1}^k \int_{B_{r_0} (x)} \abs{u_i}^2 \\
+&\leq C r_{\alpha}^{2p} k \abs{B_{r_{\alpha}}} \\
+&\leq C k\abs{B_{r_0}} (1-\epsilon)^{-n\alpha} r_0^{2p}(1-\epsilon)^{1-2p}
+\end{align*}
+<p>
+But by \eqref{det} the left hand side satisfies
+\[
+k \det (G_0^{-1} \circ G_{\alpha})^{1/k} > k(1-\epsilon)^{-(2p+n+\delta)\alpha}
+\]
+giving
+\[
+k(1-\epsilon)^{-(2p+n+\delta)\alpha} < C k\abs{B_{r_0}} (1-\epsilon)^{-n\alpha} r_0^{2p}(1-\epsilon)^{1-2p}.
+\]
+Simplifying gives for any \(\alpha\),
+\[
+(1-\epsilon)^{-\alpha\delta} \leq C
+\]
+with \(C\) independent of \(\alpha\). Sending \(\alpha \to \infty\) gives a contradiction.
+</p>
+
+</div>
+
+<p>
+We see in the last inequality where the \(\delta > 0\) is required and that the proof does not work with \(\delta = 0\).
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgf8c7a5e" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Harmonic Functions With Polynomial Growth</a>
+</h3>
+</div>
+<div id="notes-section-orgf8c7a5e" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-3">
+<p>
+Now we may prove the main theorem by playing the two lemmas off against each other.
+</p>
+
+<div class="theorem">
+<p>
+\[
+\operatorname{dim} \mathcal{H}_p (M) \leq C(n) p^{n-1}
+\]
+where
+\[
+\mathcal{H}_p(M) = \{u \in C^{\infty}(M) : \Delta u = 0, \abs{u(x)} \leq C(1 + d(x, x_0)^p\}
+\]
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+Let \(K \subseteq \mathcal{H}_p\) be any finite dimensional subspace, \(\epsilon \in (0, 1/2]\), \(r_0 = 1\) and any \(\delta > 0\) as in Lemma \ref{lowerbound} such that
+\[
+\int_{B_{r(1-\epsilon)}} \sum_{i=1}^k \abs{u_i}^2 \geq k(1-\epsilon)^{2p + n + \delta}.
+\]
+On the other hand by Lemma \ref{upperbound}
+\[
+\int_{B_{r(1-\epsilon)}} \sum_{i=1}^k \abs{u_i}^2 \leq C(n) \epsilon^{-(n-1)}.
+\]
+Combining these gives,
+\[
+k \leq C(n) \epsilon^{-(n-1)}(1-\epsilon)^{-(2p+n+\delta)}.
+\]
+Now we choose \(\epsilon = \tfrac{1}{2p}\) giving,
+\[
+k \leq C(n) 2^{n-1}p^{n-1}(1-\tfrac{1}{2p})^{-2p} s^{n\epsilon\delta} \leq \tilde{C}(n) p^{n-1}
+\]
+where we bounded \((1-\tfrac{1}{2p})^{-2p} \leq e\).
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgaf47b65" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Minimal Surfaces</a>
+</h3>
+</div>
+<div id="notes-section-orgaf47b65" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-4">
+<div class="remark">
+<p>
+Colding-Minicozzi also consider the situation \(M^n \subset \RR^N\) a minimal submanifold with Euclidean volume growth: \(V(B_r\cap M) \leq C_0 r^n\). Then the dimensions of the space of harmonic functions of polynomial growth of order \(p\) is bounded by \(C(n, C_0)p^{n-1}\).
+</p>
+
+<p>
+The idea is to use the Michael-Simon inequality of harmonic functions for minimal submanifolds to show that if \(\Delta u = 0\), we have the mean value inequality
+\[
+u(x) \leq \frac{C}{r^n} \int_{B_r \cap M} u^2
+\]
+</p>
+
+<p>
+By the monotonicity formula,
+\[
+\frac{d}{dr} \frac{\abs{B_r \cap M}}{r^n} \geq 0.
+\]
+Combined with Euclidean volume growth, we get
+\[
+\abs{B_r \cap M} \sim r^n.
+\]
+</p>
+
+<p>
+Then the mean value inequality is now a real mean value inequality and
+\[
+\abs{\frac{B_R \cap M}{B_r \cap M}} \leq C\left(\frac{R}{r}\right)^n
+\]
+and the proof of the main theorem goes through as before.
+</p>
+
+</div>
+
+<div class="cor">
+<p>
+In the situation of the remark, \(M\) is contained in a subspace of \(\RR^N\) of dimension depending only on \(n, C_0\).
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+Since \(M\) is minimal, the coordinate functions are harmonic and of linear growth rate. Thus each \(x^i \in \mathcal{H}_1(M)\). Then apply dimension bound.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>

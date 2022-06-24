@@ -1,0 +1,857 @@
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgeafe72c" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Self Adjoint \(A\)</a>
+</h3>
+</div>
+<div id="notes-section-orgeafe72c" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-1">
+<p>
+For the following applications it is sufficient to restrict to the case where \(A\) is self adjoint. Let's ju
+st take a look at this condition. That is, an endomorphism \(T\) is self adjoint provided \(g(T(X), Y) = g(X, T(Y)\).
+</p>
+
+<p>
+Given any arbitrary endomorphism \(T\), the adjoint \(T^{\ast}\) is defined by the relation
+\[
+g(T^{\ast} (X), Y) = g(X, T(Y)).
+\]
+The operator \(T\) is then self adjoint if and only if \(T = T^{\ast}\).
+</p>
+
+<p>
+Equivalently, \(T^{\ast}\) is defined by metric contraction: let \(B(X, Y) = g(X, T(Y)) = \operatorname{Tr}_g^2 T\) where the \(2\) denotes the contraction is in the second slot of \(g\). Then \(T^{\ast} = \operatorname{Tr}_{g^{\ast}}^1 B\) where \(g^{\ast}\) denotes the dual metric. In other words, \(T^{\ast}\) is obtained by first metric lowering the upper index of \(T\) into the second slot and then metric-raising the first slot. Explicitly,
+\[
+T^{\ast} = \operatorname{Tr}^1 g^{\ast} \otimes \operatorname{Tr}^2 (g \otimes T).
+\]
+With respect to a frame,
+\[
+(T^{\ast})^i_j = g^{ik} g_{jl} T^l_k
+\]
+In particular, if \(T_t\) is a smooth one parameter family along \(\gamma\), since \(g\) is also smooth, then \(T^{\ast}_t\) is a smooth one-parameter family.
+</p>
+
+<div class="lem">
+<p>
+For any tangent vector \(Z\), the endomorphism \(\operatorname{R}_Z\) is \(g\)-self adjoint. That is for any vector fields \(X, Y\) along \(\gamma\),
+\[
+g(\operatorname{R}_Z (X), Y) = g(X, \operatorname{R}_Z(Y)).
+\]
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+By the curvature tensor symmetries,
+\[
+g(\operatorname{R}_Z (X), Y) = \operatorname{Rm} (X, Z, Z, Y) = \operatorname{Rm} (Y, Z, Z, X) = g(X, \operatorname{R}_Z (Y))
+\]
+so that \(\operatorname{R}_Z\) is self adjoint.
+</p>
+
+</div>
+
+<p>
+Employing the Riccati equation and the self-adjointness of \(\operatorname{R}_V\) we may deduce necessary and sufficient conditions for when \(A(t)\) is self adjoint for each \(t\).
+</p>
+
+<div class="lem">
+<p>
+Let \(A(t)\) satisfy the Riccati equation. The \(A(t)\) is self adjoint for every \(t\) if and only if \(A(0)\) is self adjoint.
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+One implication is obvious: if \(A(t)\) is self adjoint for every \(t\), then certainly it is self adjoint for \(t = 0\).
+</p>
+
+<p>
+Conversely, suppose that \(A(0)\) is self adjoint. Let \(A^{\ast}\) denote it's adjoint. That is \(A^{\ast}\) is defined by
+\[
+g(A^{\ast} (X), Y) = g(X, A(Y))
+\]
+and is differentiable with respect to \(t\). By assumption \(A^{\ast}(0) = A\) and we need to show that \(A^{\ast}(t) = A(t)\) for every \(t\).
+</p>
+
+<p>
+Now, we determine \(A^{\ast} (t)\) and \(\partial_t A^{\ast} (t)\) by their action on tangent vectors at \(\gamma(t)\). In fact, we may do this by determining their action on parallel fields along \(\gamma\): Let \(X, Y\) be arbitrary parallel vector fields along \(\gamma\). Since parallel transport is an isomorphism, every tangent vector in \(T_{\gamma(t)} M\) is equal to the restriction \(X(t)\) of such a parallel field \(X\) along \(\gamma\). Thus we may compute the variation of \(A^{\ast}\) by differentiating the relation
+\[
+g(A^{\ast} (X), Y) = g(X, A(Y)).
+\]
+where \(X, Y\) and parallel vector fields. As usual, putting \(V = \gamma'\) then differentiating, using metric compatibility and the fact that \(X, Y\) are parallel gives
+\[
+g((\nabla_V A^{\ast}) (X), Y) = g(X, (\nabla_V A) (Y)).
+\]
+Note here that the parallel assumption gives \(\nabla_V X = \nabla_V Y = 0\) and \(\nabla_V [A(X)] = (\nabla_V A) (X) + A(\nabla_V X) = (\nabla_V A)(X)\).
+</p>
+
+<p>
+Therefore from the Riccati equation and the fact that \(\operatorname{R}_V\) is self adjoint,
+\[
+g((\nabla_V A^{\ast}) (X), Y) = -g(X, \operatorname{R}_V (Y)) - g(X, A^2(Y)) = -g(\operatorname{R}_V (X) + (A^{\ast})^2 (X), Y).
+\]
+That is, for every \(X, Y\)
+\[
+g((\nabla_V A^{\ast})(X) + (A^{\ast})^2 (X) + \operatorname{R}_V (X), Y) = 0
+\]
+and hence
+\[
+\nabla_V A^{\ast} + (A^{\ast})^2 + \operatorname{R}_V = 0.
+\]
+</p>
+
+<p>
+Therefore the adjoint \(A^{\ast}\) also satisfies the Riccati equation! But if \(A(0)\) is self adjoint, then \(A^{\ast}(0) = A(0)\) and we see that \(A^{\ast}\) satisfies the Riccati equation with the same initial conditions as \(A\). Hence by uniqueness of solutions, \(A^{\ast} = A\) and therefore \(A\) is self adjoint.
+</p>
+
+</div>
+
+<div class="rem">
+<p>
+Ensuring that \(A\) is self adjoint thus amounts to choosing self-adjoint initial conditions \(A(0)\) or equivalently, choosing \(J_i(0), J_i'(0)\), \(1 \leq i \leq n\) such that the mapping \(A_0\) determined by \(A_0(J_i(0)) = J_i'(0)\) is self adjoint. That is,
+\[
+g(J_i'(0), J_k(0)) = g(A_0(J_i(0)), J_k(0)) = g(J_i(0), A_0(J_k(0))) = g(J_i(0), J_k'(0)).
+\]
+for each \(1 \leq i,k \leq n\).
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org79159bf" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Comparison Theory for Riccati Equation</a>
+</h3>
+</div>
+<div id="notes-section-org79159bf" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-2">
+<p>
+Here we develop a comparison theory for <i>self adjoint</i> solutions to the Riccati equation
+\[
+A' + A^2 + \operatorname{R}_V = 0.
+\]
+For our later applications, the restriction to self adjoint solutions will not cause in difficulties.
+</p>
+
+<p>
+Ultimately, we will need to compare solutions arising along geodesics on different manifolds. There are a number of ways we might do this and they all essentially come down to the fact that any two geodesics are diffeomorphic to an interval (or \(\mathbb{S}^1\) for closed geodesics which are diffeomorphic to an interval after removing a single point). Any vector bundle over an interval is trivial and hence all \(n\)-dimensional vector bundles over an interval are linearly isomorphic and so we may compare different solutions of the Riccati equation arising from different manifolds of the same dimension. The way we realise this observation here is via parallel transport as in Eschenburg.
+</p>
+
+<p>
+In this and future sections, geodesics will be parametrised by unit speed so that \(|\gamma'| \equiv 1\) and \(\gamma\) is defined on an interval \([0, T)\). Let \(\tau_t : T_{\gamma(0)} M \to T_{\gamma(t)}\) be parallel transport along \(\gamma\) and note that it is an isometry; that is
+\[
+g_{\gamma(t)} (\tau_t X, \tau_t Y) = g_{\gamma(0)} (X, Y).
+\]
+</p>
+
+<p>
+Now we define
+\[
+\bar{A}(t) : X \in T_{\gamma(0)} M \mapsto \tau_t^{-1} A(t) \tau_t (X) \in T_{\gamma(0)}.
+\]
+That is
+\[
+\bar{A}(t) = \tau_t^{-1} \circ A(t) \circ \tau_t
+\]
+is a smooth, one-parameter family of endomorphisms of the fixed vector space \(E = T_{\gamma(0)} M\).
+</p>
+
+<p>
+Then we have
+\[
+\partial_t (\bar{A} (X)) = \partial_t (\tau_t^{-1} A \tau_t (X)) = \tau_t^{-1} A' \tau_t (X) = -\tau_t^{-1} A^2 \tau_t (X) - \tau_t^{-1} \operatorname{R}_V \tau_t (X).
+\]
+Here we use the fact for the parallel vector field \(\bar{X}(t) = \tau_t X\) we have
+\[
+\nabla_{\gamma'} [A(\bar{X})] = [\nabla_{\gamma'} A] (X) + A(\nabla_{\gamma'} \bar{X}) = A'(X)
+\]
+and for the vector field \(Y = A(\bar{X}) = A(\tau_t X)\) along \(\gamma\), we have
+\[
+\partial_t [\tau_t^{-1} Y] = \tau_t^{-1} \nabla_{\gamma'} Y
+\]
+since \(\tau_t^{-1}\) is also parallel transport (going back the other way).
+</p>
+
+<p>
+Note that
+\[
+\tau_t^{-1} A^2 \tau_t = \tau_t^{-1} A \tau_t \tau_t^{-1} A \tau_t = \bar{A}^2.
+\]
+Then writing \(\bar{R} = \tau_t^{-1} \operatorname{R}_V \tau_t\) we have
+\[
+\bar{A}' + \bar{A}^2 + \bar{R} = 0
+\]
+so that \(\bar{A}\) also satisfies a Riccati equation.
+</p>
+
+<p>
+So we have \(\bar{A}\) a one-parameter family of endomorphisms of the fixed vector space \(E = T_{\gamma(0)} M\) equipped with the inner-product \(g_{\gamma(0)}\). By choosing a \(g\)-orthonormal basis of \(T_{\gamma}(0)\), if we wish we may further assume that \((E, g) = (\mathbb{R}^n, \langle \cdot, \cdot \rangle)\) is the standard \(n\)-dimensional Euclidean space.
+</p>
+
+<p>
+<b>Throughout this section we will assume \(A_t : E \to E\) is a one-parameter family of endomorphims of a fixed vector space \(E\) with inner-product \(\langle \cdot, \cdot \rangle\).</b>
+</p>
+
+<p>
+Now to the task at hand. In order to compare solutions of the Riccati equation we need an ordering on self-adjoint endomorphisms. The ordering we define is a <i>partial ordering</i> which means that for self adjoint endomorphisms, neither \(T \leq S\) nor \(S \leq T\) need hold in general.
+</p>
+
+<div class="defn">
+<p>
+Let \(S, T\) be self adjoint endmorphisms acting on a vector space \(E\) with inner product \(g\). We say that \(T \leq S\) provided for every \(X \in E\)
+\[
+g(T(X), X) \leq g(S(X), X).
+\]
+</p>
+
+<p>
+Let \(S_t, T_t\) be one parameter families of self-adjoint endomorphisms along \(\gamma\). Then we say \(T \leq S\) provided for every \(t\), \(T_t \leq S_t\).
+</p>
+
+</div>
+
+<p>
+Here's the comparison theorem.
+</p>
+
+<div class="thm">
+<p>
+Let \(R_1, R_2\) be one-parameter families of self-adjoint endomorphisms such that \(R_1 \geq R_2\). Let \(A_i\), \(i = 1,2\) be solutions of the Riccati equation
+\[
+A_i' + A_i^2 + R_i = 0
+\]
+with initial conditions satisfying
+\[
+A_1(0) \leq A_2 (0)
+\]
+and defined on \([0, T_i)\).
+</p>
+
+<p>
+Then \(T_1 \leq T_2\) and
+\[
+A_1(t) \leq A_2 (t)
+\]
+for all \(t \in [0, T_1)\).
+</p>
+
+</div>
+
+<div class="rem">
+<p>
+Notice that there is a changing of inequality: \(R_1 \geq R_2\) but \(A_1 \leq A_2\). This is just because of the way we have written the Riccati equation: really \(-R_i\) is the driving term which then satisfies \(-R_1 \leq -R_2\). In other words, the assumptions of the theorem are
+\[
+A_1' + A_1^2 = - R_1 \leq - R_2 = A_2' + A_2^2
+\]
+and
+\[
+A_1(0) \leq A_2(0).
+\]
+And the conclusion is
+\[
+A_1(t) \leq A_2(t).
+\]
+</p>
+
+<p>
+Roughly, we can expect the theorem to be true since rewriting the inequality as \(A_1' \leq A_2' + A_2^2 - A_1^2\) shows that if at some \(t_0\), \(A_1(t_0) = A_2(t_0)\), then \(A_1'(t_0) \leq A_2'(t_0)\). But since \(A_1(0) \leq A_2(0)\), in order that \(A_1(t_0) = A_2(t_0)\), \(A_1\) must increase up to \(A_2\) so that \(A_1'(t_0) \geq A_2' (t_0)\). So we have two opposite inequalities, but neither are strict; if at least one was strict then we would have a contradiction and that would be the end of it which is the motivation for the method of proof.
+</p>
+
+</div>
+
+<p>
+The proof idea in the remark is the basis of the proof in
+</p>
+
+<p>
+<a href="https://doi.org/10.1007/BF01174796">Comparison theorems and hypersurfaces by J.-H. Eschenburg, Manuscripta Math. 59, 295 - 323 (1987)</a>
+</p>
+
+<p>
+The proof in <a href="http://myweb.rz.uni-augsburg.de/~eschenbu/comparison.pdf">Eschenburg</a> has the advantage of applying even when \(A_1, A_2\) blow up at \(t = 0\) in such a way that \(U = A_2 - A_1\) is continuous up to \(t=0\). That proof originates in
+</p>
+
+<p>
+<a href="https://doi.org/10.1007/BF02568760">Comparison theory for Riccati equations by J.-H. Eschenburg and E. Heintze, Manuscripta Math. 68, 209 - 214 (1990)</a>
+</p>
+
+<p>
+Another proof may be found in
+</p>
+
+<p>
+<a href="https://doi.org/10.1002/cpa.3160410512">Comparison Theorems for the Matrix Riccati Equation by H.L. Royden 41, Comm. Pure Appl. Math. 5 July 1988, Pages 739-746</a>
+</p>
+
+<p>
+We'll describe the proof of Eschenburg/Heintze.
+</p>
+
+<div class="proof">
+<p>
+Let \(U = A_2 - A_1\) so that \(U(0) \geq 0\) and
+\[
+U' = A_2' - A_1' = A_1^2 - A_2^2 + R_1 - R_2  = -\frac{1}{2}(A_1 + A_2) (A_1 - A_2) - \frac{1}{2} (A_1 - A_2) (A_1 + A_2) + R_1 - R_2.
+\]
+That is, if we let \(M = -\tfrac{1}{2}(A_1 + A_2)\) and \(S = R_1 - R_2\) (which are bounded on any interval \([0, \tau]\) with \(\tau < \min{T_1, T_2}\)), then
+\[
+U' = M U + U M + S.
+\]
+</p>
+
+<p>
+Now we can solve the equation for \(U\) by variation of parameters. Let \(B\) solve the linear equation
+\[
+B' = M B, \quad B(0) = \operatorname{Id}.
+\]
+Observe that if \(C\) is the solution of
+\[
+C' = -C M, \quad C(0) = \operatorname{Id},
+\]
+then
+\[
+(C B)' = C' B + C B' = - CMB + CMB = 0
+\]
+and hence \((CB)(t) = C(0)B(0) = \operatorname{Id}\) so that \(B\) is non-singular.
+</p>
+
+<p>
+Let \(V\) solve
+\[
+V' = B^{-1} S (B^{-1})^{\ast}, \quad V(0) = U(0).
+\]
+where \(T^{\ast}\) denotes the adjoint operator (with respect to the standard Euclidean basis, the matrix for \(B^{\ast}\) is just the transpose matrix). Notice that since \(S \geq 0\), then
+\[
+\langle V'(X), X \rangle = \langle B^{-1} S (B^{-1})^{\ast} (X), X \rangle = \langle S (B^{-1})^{\ast} (X), (B^{-1})^{\ast} X \rangle \geq 0.
+\]
+and also
+\[
+V(0) \geq 0.
+\]
+Then, by the same reasoning changing \(B^{-1}\) to \(B\) and replacing \(S\) with \(V\),
+\[
+\bar{U} := B V B^{\ast} \geq 0.
+\]
+</p>
+
+<p>
+But now
+</p>
+\begin{split}
+\bar{U}' &= B' V B^{\ast} + B V' B^{\ast} + B V (B^{\ast})' \\
+&= M B V B^{\ast} + B B^{-1} S (B^{\ast})^{-1} B^{\ast} + B V B^{\ast} M^{\ast} \\
+&= M \bar{U} + \bar{U} M + S
+\end{split}
+<p>
+and
+\[
+\bar{U}(0) = B(0) V(0) B^{\ast} (0) = V(0) = U(0).
+\]
+</p>
+
+<p>
+That is \(U\) and \(\bar{U}\) satisfy the same linear ODE with the same initial condition hence
+\[
+U(t) = \bar{U} (t) \geq 0
+\]
+on \(t \in [0, \tau]\) for every \(\tau \leq \min\{T_1, T_2\}\) and so \(U(t) \geq 0\) for every \(t\) in this interval.
+</p>
+
+<p>
+Then since by definition \(U(t) = A_2(t) - A_1(t)\) we obtain the desired inequality,
+\[
+A_1(t) \leq A_2(t).
+\]
+</p>
+
+<p>
+For the statement that \(T_1 \leq T_2\) notice that
+\[
+A_i' \leq -A_i^2 - R_i
+\]
+is bounded above so the only way \(A_i\) can blow up is to \(-\infty\) and since \(A_1 \leq A_2\), if \(A_2\) blows up to \(-\infty\) as \(t \to T_2\), then so does \(A_1\) hence \(T_1 \leq T_2\).
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgc3baecd" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Comparison Theory for Jacobi Fields</a>
+</h3>
+</div>
+<div id="notes-section-orgc3baecd" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-3">
+<p>
+Now we may deduce a comparison theorem for Jacobi fields. Let us write \(\lambda_-(A)\) for the minimum eigenvalue of a self adjoint operator \(A\) and \(\lambda_+(A)\) for the maximum eigenvalue. Suppose that there are two operators \(A_1, A_2\) with \(\lambda_+(A_1) \leq \lambda_-(A_2)\), then \(A_1 \leq A_2\). This follows since if \(E_i\) is an orthonormal basis of eigenvectors for \(A_1\) with corresponding eigenvalues \(\lambda_i\), then for any \(X\),
+\[
+\langle A_1(X), X\rangle = \langle A_1(X^i E_i), X^j E_j\rangle = X^i X^j \lambda_i \delta_{ij} = \lambda_i (X^i)^2 \leq \lambda_+(A_1) \sum_i (X^i)^2 = \lambda_+(A_1) \|X\|^2.
+\]
+Likewise, writing \(X\) with respect to an orthonormal basis of eigenvectors for \(A_2\), we have
+\[
+\langle A_2(X), X \rangle \geq \lambda_-(A_2) \|X\|^2.
+\]
+Therefore,
+\[
+\langle A_1(X), X \rangle \leq \lambda_+(A_1)\|X\|^2 \leq \lambda_-(A_2) \|X\|^2 \leq \langle A_2(X), X \rangle.
+\]
+</p>
+
+<p>
+The converse however, is false. For example, consider
+\[
+A_1 = \begin{pmatrix}
+1 & 0 \\
+0 & 3
+\end{pmatrix}
+\]
+and
+\[
+A_2 = \begin{pmatrix}
+2 & 0 \\
+0 & 4
+\end{pmatrix}.
+\]
+Then \(A_1 \leq A_2\) but \(\lambda_+(A_1) = 3\) while \(\lambda_-(A_2) = 2\).
+</p>
+
+<p>
+Thus the inequality \(\lambda_+(A_1) \leq \lambda_-(A_2)\) is strictly stronger than the inequality \(A_1 \leq A_2\) even in the case that \(A_1, A_2\) are simultaneously diagonalisable as in the example. Note in particular though that
+\[
+\lambda_-(A) \operatorname{Id} \leq A \leq \lambda_+(A) \operatorname{Id}.
+\]
+</p>
+
+<div class="thm">
+<p>
+Let \(A_1, A_2\) both be smooth one parameter, self adjoint families of endomorphisms defined on \((0, T)\) and such that
+\[
+\lambda_+(A_1(t)) \leq \lambda_-(A_2(t))
+\]
+Suppose for \(i=1,2\),\(J_i\) are non-zero solutions of \(J_i' = A_i \cdot J\).
+</p>
+
+<p>
+Then \(\|J_1\|/\|J_2\|\) is monotonically decreasing. In particular, if
+\[
+\limsup_{t\to 0^+} \frac{\|J_1\|}{\|J_2\|} = C
+\]
+then
+\[
+\|J_1\| \leq C \|J_2\|.
+\]
+</p>
+
+<p>
+Moreover, if
+\[
+\lim_{t\to 0} \frac{\|J_1\|}{\|J_2\|} = 1
+\]
+and \(\|J_1\|(\tau) = \|J_2\|(\tau)\) for some \(\tau \in (0, T)\), then for all \(t \in (0, \tau]\),
+\[
+\lambda_+(A_1(t)) = \lambda_-(A_2(t)) := \lambda(t),
+\]
+and \(J_i(0)\) is an eigenvector for \(A_i(t)\) with eigenvalue \(\lambda(t)\) and in fact,
+\[
+J_i(t) = j(t) J_i(0)
+\]
+where \(j\) is uniquely determined by
+\[
+j' = \lambda j, \quad j(0) = 1.
+\]
+</p>
+
+</div>
+
+<p>
+Notice here that we do not require \(J_1, J_2\) to be smooth up to \(t=0\).
+</p>
+
+<div class="proof">
+<p>
+As in the discussion above the statement of the theorem, we have for any \(X\),
+\[
+\lambda_- (A_i) \|X\|^2 \leq \langle A_i(X), X \rangle \leq \lambda_+(A_i) \|X\|^2
+\]
+Then since both \(J_i\) are not zero and \(J_i' = A_i J_i\),
+\[
+\frac{\|J_1\|'}{\|J_1\|} = \frac{\langle A_1 J_1, J_1\rangle}{\|J_1\|^2} \leq \lambda_+(A_1) \leq \lambda_-(A_2) \leq \frac{\|J_2\|'}{\|J_2\|}.
+\]
+That is,
+\[
+(\ln \|J_1\|)' \leq (\ln \|J_2\|)'
+\]
+which is equivalent to
+\[
+\left(\ln \frac{\|J_1\|}{\|J_2\|}\right)' =(\ln \|J_1\| - \ln \|J_2\|)' \leq 0
+\]
+so that \(\|J_1\|/\|J_2\|\) is monotonically decreasing (since \(\ln\) is monotonically increasing).
+</p>
+
+<p>
+If equality holds at \(t=0\) and \(t=\tau\), then \(\|J_1\| = \|J_2\|\) on \([0, \tau]\) so that we have equality all the way through in
+\[
+\frac{\|J_1\|'}{\|J_1\|} = \frac{\langle A_1 J_1, J_1\rangle}{\|J_1\|^2} \leq \lambda_+(A_1) \leq \lambda_1(A_2) \leq \frac{\|J_2\|'}{\|J_2\|}.
+\]
+</p>
+
+<p>
+Then
+\[
+\lambda_+(A_1) = \lambda_-(A_2).
+\]
+</p>
+
+<p>
+Also we obtain
+\[
+J_1' = A_1 J_ 1 = \lambda J_1
+\]
+since \(J_1 = J_1^i E_i\) where \(A_1 E_i = \lambda_i E_i\). But if \(J_1^i \ne 0\) for some \(i\) with \(\lambda_i > \lambda_-(A_1) = \lambda\), then
+\[
+\|J_1\|^2 \lambda_-(A_1) = \langle A_i J_i, J_i \rangle = \sum_i \lambda_i (J_1^i)^2 > \sum_i \lambda (J_1^i)^2 = \lambda_-(A_1) \|J_1\|^2
+\]
+a contradiction. Thus
+\[
+J_1 = \sum_{i=1}^k J_1^i E_i
+\]
+where \(A_i E_i = \lambda E_i\) for each \(i\). Thus \(A_1 J_1 = \lambda J_1\).
+</p>
+
+<p>
+Now, the unique solution of
+\[
+J' = \lambda J, J(0) = J_1(0)
+\]
+is
+\[
+J_1 = j(t) J_1(0)
+\]
+where \(j' = \lambda j\) and \(j(0) = 1\).
+</p>
+
+<p>
+Likewise,
+\[
+J_2' = A_2 J_2 = \lambda J_2
+\]
+and \(J_2 = j(t) J_2(0)\) for the same function \(j(t)\).
+</p>
+
+</div>
+
+<p>
+As a consequence we obtain the so called Rauch I and Rauch II comparison theorems.
+</p>
+
+<div class="cor">
+<p>
+<b>Rauch I</b>
+</p>
+
+<p>
+Let \(J_1, J_2\) be solutions of
+\[
+J_i ''+ R_i J_i = 0
+\]
+where \(\lambda_-(R_1) \geq \lambda_+(R_2)\) and
+\[
+J_i(0) = 0, \quad \|J_1'(0)\| = \|J_2'(0)\|.
+\]
+</p>
+
+<p>
+Then \(\|J_1(t)\| \leq \|J_2(t)\|\) for all \(t \in [0, T)\) such that \(J_1(t) \ne 0\) on \([0, T)\). The same equality conclusion of the Jacobi field comparison theorem holds if we have equality for some \(\tau\).
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+As already noted, the assumptions on \(R_i\) imply that \(R_1 \geq R_2\). The trick here is to define initial conditions \(A_1(0), A_2(0)\). Suppose for the moment that we have those in hand with \(A_1(0) \leq A_2(0)\). Then the comparison theorem applies to give \(A_1 \leq A_2\). If we make the stronger initial assumption, \(\lambda_+(A(0)) \leq \lambda_-(A(0))\), then the stronger assumption \(\lambda_-(R_1) \geq \lambda_+(R_2)\) actually implies the stronger conclusion that \(\lambda_+(A_1) \leq \lambda_-(A_2)\) (see exercise below).
+</p>
+
+<p>
+Then we may apply the Jacobi field comparison to conclude that while both \(J_1\) and \(J_2\) are non-zero we have
+\[
+\|J_1\| \leq \|J_2\|.
+\]
+If \(\|J_1(0)'\| = \|J_2(0)'\| = 0\), the both \(J_1\) and \(J_2\) are identically \(0\) and the theorem is vacuously true in that case. Otherwise, both \(J_1\) and \(J_2\) must be non-zero at least on some interval \((0, \epsilon)\) and then \(J_1\) must attain a zero before \(J_2\).
+</p>
+
+<p>
+Now, the initial conditions for \(A_i\) are a little tricky because they must satisfy
+\[
+A_i(0) \cdot J_i(0) = J_i'(0)
+\]
+which is impossible for finite \(A_i(0)\) if \(J_i'(0) \ne 0\) since \(J_i(0) = 0\). Rather we take
+\[
+A_i(t) \sim \frac{1}{t} \operatorname{Id}
+\]
+as \(t \to 0\). Then we may apply the Riccati comparison to conclude \(A_1(t) \leq A_2(t)\) since \(U = A_2(t) - A_1(t)\) extends continuously to \(t = 0\) given the same asymptotic behaviour of \(A_1\) and \(A_2\).
+</p>
+
+</div>
+
+<div class="ex">
+<p>
+Show that if we make the stronger initial assumption, \(\lambda_+(A_1(0)) \leq \lambda_-(A_2(0))\) then the stronger assumption \(\lambda_-(R_1) \geq \lambda_+(R_2)\) actually implies the stronger conclusion that \(\lambda_+(A_1) \leq \lambda_-(A_2)\).
+</p>
+
+<p>
+<i>Hint</i>: Use the initial conditions,
+\[
+A_1(0) \leq \lambda_+(A_1(0))\operatorname{Id} \leq \lambda_-(A_2(0)) \operatorname{Id} \leq A_2(0).
+\]
+and the assumption \(\lambda_-(R_1) \geq \lambda_+(R_2)\). Show that
+\[
+\lambda_+(A_1(t)) \leq \lambda_+(\bar{A}_1(t))
+\]
+where \(\bar{A}_1(t)\) solves the Riccati equation with initial condition \(\lambda_+(A_1(0))\operatorname{Id}\) and \(\bar{R}_1 = \lambda_+(R_1) \operatorname{Id}\). Similar for \(A_2\).
+</p>
+
+</div>
+
+<div class="ex">
+<p>
+Show that there exists a solution of 
+\[
+A' + A^2 + R = 0
+\]
+such that
+\[
+A \sim \frac{1}{t} \operatorname{Id}
+\]
+as \(t \to 0\).
+</p>
+
+<p>
+See pp. 210-212 in <a href="https://doi.org/10.1007/BF02568760">Comparison theory for Riccati equations by J.-H. Eschenburg and E. Heintze, Manuscripta Math. 68, 209 - 214 (1990)</a>
+</p>
+
+</div>
+
+<div class="cor">
+<p>
+<b>Rauch II</b>
+</p>
+
+<p>
+Let \(J_1, J_2\) be solutions of
+\[
+J_i ''+ R_i J_i = 0
+\]
+where \(\lambda_-(R_1) \geq \lambda_+(R_2)\) and
+\[
+J_i'(0) = 0, \quad \|J_1(0)\| = \|J_2(0)\|.
+\]
+</p>
+
+<p>
+Then \(\|J_1(t)\| \leq \|J_2(t)\|\) for all \(t \in [0, T)\) such that \(J_1(t) \ne 0\) on \([0, T)\). The same equality conclusion of the Jacobi field comparison theorem holds if we have equality for some \(\tau\).
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+This time we take the initial condition \(A_i(0) = 0\) and conclude that \(\lambda_+(A_1(t)) \leq \lambda_-(A_2(t))\) by the strengthened Riccati comparison theorem mentioned in the proof of Rauch I. Then the Jacobi field comparison theorem gives the result.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org344df08" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Averaged Comparison Theory</a>
+</h3>
+</div>
+<div id="notes-section-org344df08" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-4">
+<p>
+Recall that we are interested in solutions \(A\) of the Riccati equation when
+\[
+R(X) = \operatorname{R}_V(X) = \operatorname{Rm} (X, V) V.
+\]
+</p>
+
+<p>
+We already know precisely how \(A\) acts on the tangential directions to \(\gamma\) and so we restrict \(A\) to act only on \(\gamma'(0)^{\perp}\). Note also that in our formulation using parallel transport, since parallel transport is an isometry, the space of parallel fields orthogonal to \(\gamma'(t)\) is determined precisely by \(\gamma'(0)^{\perp}\). Equivalently, since \(A(\gamma') = \nabla_{\gamma'} \gamma' = 0\), when acting on all of \(T_{\gamma(0)} M\), there is always a zero in the tangential direction so we ignore that. Otherwise, below we would have to replace the \(n-1\) identity \(\operatorname{I}\) with the matrix that is zero in the top corner and the \(n-1\) identity in the bottom corner which is a little more messy. Since we are interested in taking traces here, it doesn't matter as either matrix has trace equal to \(n-1\) anyway.
+</p>
+
+<p>
+So taking the trace of \(\operatorname{R}_V\) we have,
+\[
+\operatorname{Tr} \operatorname{R}_V = \operatorname{Tr} \operatorname{Rm}(\cdot, V) V = \operatorname{Ric} (V, V).
+\]
+We abbreviate the last term as \(\operatorname{Ric}(V) := \operatorname{Ric}(V, V)\). Then if
+\[
+A' + A^2 + \operatorname{R}_V = 0
+\]
+since the trace is linear, we obtain
+\[
+(\operatorname{Tr} A)' + \operatorname{Tr} A^2 + \operatorname{Ric}(V) = 0.
+\]
+Now it is not true that \(\operatorname{Tr} A^2 = (\operatorname{Tr} A)^2\) but we only need a little rewriting to obtain an equation for \(\operatorname{Tr}(A)\).
+</p>
+
+<p>
+Let us set
+\[
+a = \frac{1}{n-1} \operatorname{Tr} A
+\]
+so that
+\[
+a'+ \frac{1}{n-1} \operatorname{Tr} A^2 + \frac{1}{n-1} \operatorname{Ric}(V) = 0.
+\]
+Now, let
+\[
+\overset{\circ}{A} = A - a \operatorname{Id}
+\]
+be the trace free part of \(A\). Then
+\[
+\operatorname{Tr} A^2 = \operatorname{Tr}(\overset{\circ}{A} + a \operatorname{Id})^2 = \operatorname{Tr}\overset{\circ}{A}^2 + 2 \operatorname{Tr}(a \overset{\circ}{A}) + \operatorname{Tr} a^2 \operatorname{Id} = (n-1) a^2 + \operatorname{Tr}\overset{\circ}{A}^2.
+\]
+Then letting
+\[
+r = \frac{1}{n-1}\left(\operatorname{Tr}(\overset{\circ}{A}^2 + \operatorname{Ric} (V)\right)
+\]
+we have
+\[
+a' + a^2 + r = 0.
+\]
+Notice that \(r\) satisfies
+\[
+r \geq \frac{1}{n-1} \operatorname{Ric}(V)
+\]
+since for a self adjoint matrix \(B\), we have \(\operatorname{Tr} B = \lambda_1^2 + \cdots + \lambda_{n-1}^2 \geq 0\) where \(\lambda_i\) are the eigenvalues of \(B\).
+</p>
+
+<p>
+An easy consequence of the Riccati comparison theorem is the <i>averaged Ricci comparison theorem</i>, so called because the Trace is an averaging operator (e.g. in terms of eigenvalues, the trace is the unnormalised average).
+</p>
+
+<div class="thm">
+<p>
+Suppose \(R_t\) is a smooth, one-parameter family of self adjoint endomorphisms such that
+\[
+\operatorname{Tr} R \geq (n-1) k
+\]
+for some \(k \in \mathbb{R}\).
+</p>
+
+<p>
+Let \(A\) be a solution of
+\[
+A' + A^2 + R = 0
+\]
+on a maximal time interval \([0, T)\) and let \(\bar{a}\) be the unique solution of
+\[
+\bar{a}' + \bar{a}^2 + k = 0, \quad \bar{a}(0) = \bar{a}_0 \geq \frac{1}{n-1} \operatorname{Tr} A(0)
+\]
+on the maximal interval \([0, \bar{T})\).
+</p>
+
+<p>
+Then \(T \leq \bar{T}\) and
+\[
+a := \frac{1}{n-1} \operatorname{Tr} A
+\]
+satisfies \(a(t) \leq \bar{a} (t)\) for all \(t \in [0, T)\).
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+This is just the one dimensional Riccati equation with
+\[
+a(0) \leq \bar{a}(0)
+\]
+and
+\[
+r \geq \frac{1}{n-1} \operatorname{Tr} R \geq k.
+\]
+</p>
+
+</div>
+
+<p>
+Next we have the averaged Jacobi equation comparison. To motive this, let \(J_1, \dots, J_{n-1}\) be a basis of solutions of
+\[
+J' = A \cdot J
+\]
+where \(A\) is a solution of the Riccati equation. Notice that this is a linear system of \(n-1\) equations so has a solution space of dimension \(n-1\). Now we let
+\[
+j = \det(J_1, \dots, J_{n-1}).
+\]
+Writing \(M = (J_1, \cdots, J_{n-1})\), then differentiating the determinant using <a href="https://en.wikipedia.org/wiki/Jacobi%27s_formula">Jacobi's Formula</a> gives
+\[
+j' = (\det M)' = \operatorname{Tr}(M^{\sharp} \cdot M')
+\]
+where \(M^{\sharp}\) is the <a href="https://en.wikipedia.org/wiki/Adjugate_matrix">Adjugate Matrix</a> of \(M\) which satisfies
+\[
+M M^{\sharp} = \det M \operatorname{Id}.
+\]
+Now since each \(J_i' = A J_i\) we have \(M' = A M\) and hence
+\[
+j' = \operatorname{Tr} (M^{\sharp} A M) = \operatorname{Tr} (A M M^{\sharp}) = \operatorname{Tr} (\det M \cdot A) = \operatorname{Tr} A \cdot \det M
+\]
+That is,
+\[
+j' = (n-1) a j.
+\]
+</p>
+
+<div class="thm">
+<p>
+Let \(A\) be a one-parameter family of self adjoint endomorphisms and let \(a = \tfrac{1}{n-1} \operatorname{Tr} A\). Suppose that \(\bar{a}\) satisfies \(a \leq \bar{a}\).
+</p>
+
+<p>
+Let \(j\) be any solution of
+\[
+j' = a j
+\]
+and let \(\bar{j}\) be any solution of
+\[
+\bar{j}' = \bar{a} \bar{j}.
+\]
+</p>
+
+<p>
+Then \(|j|/|\bar{j}|\) is montonically decreasing.
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+This is just the one dimensional version of the Jacobi field comparison theorem.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>

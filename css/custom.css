@@ -1,0 +1,163 @@
+/* bootstrap 3 helpers */
+
+.masthead {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  background: url('/img/banner.jpg') top center no-repeat;
+  margin: 0 auto;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+.masthead:after {
+  padding-top: 33%;
+  /* this image is 1108x369 so set the padding top % to match 369/1108 = .33 */
+  display: block;
+  content: '';
+}
+
+.mastheadContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  color: black;
+  text-align: center;
+  max-width: 890px;
+  margin: auto;
+}
+
+.profile-frame {
+    background: #FFF;
+    border: 5px solid #fff;
+    border-radius: 12px;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 1px 1px rgba(136,153,166,0.15);    
+    position: absolute;
+    bottom: -90px;
+    left: 10px;
+}
+
+img.profile-img {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border-radius: 8px;
+}
+
+.mastheadnavbar {
+    background: #fff;
+    height: 60px;
+    border-bottom: 1px solid #e1e8ed;
+    max-width: 890px;
+    margin: auto;
+}
+
+div.container {
+    position: relative;
+    max-width: 890px;
+    margin: auto;
+}
+
+.ProfileCanopy{position:relative}
+.ProfileCanopy,.ProfileCanopy-header{height:175px;transition:height .3s}
+.ProfileCanopy-header:before{display:block;content:'';position:absolute;height:100%;width:100%;box-shadow:inset 0 0 1px 1px rgba(0,0,0,0.2);z-index:1}
+.ProfileCanopy--withNav{padding-bottom:60px}
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:280px}
+.ProfileCanopy-inner{position:relative;width:100%;z-index:4}
+.ProfileCanopy-header{max-width:2560px;position:relative;z-index:3;background-color:#63aeee}
+.ProfileCanopy-headerBg{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden}
+.ProfileCanopy-headerBg img{position:absolute;left:0;right:0;top:-9999px;bottom:-9999px;margin:auto 0;width:100%}
+.ProfileCanopy-header .AppContainer{height:100%;position:relative}
+.ProfileCanopy-addHeaderCallout{height:100%;opacity:0;-ms-filter:"alpha(opacity=0)";text-align:center;transition:opacity .25s ease-in-out;width:100%}
+.ProfileCanopy-addHeaderCallout:focus{outline:0}
+.ProfileCanopy-addHeaderCallout:hover{opacity:1;-ms-filter:"alpha(opacity=100)"}
+.ProfileCanopy-addHeaderCalloutText{bottom:25px;color:#fff;font-size:22px;font-weight:bold;left:0;position:absolute;width:100%}
+.ProfileCanopy-avatar{bottom:-87px;left:10px;position:absolute;transition:bottom .3s;z-index:3}
+.ProfileCanopy-navBar{background-color:#fff;border-bottom:1px solid #e1e8ed;-moz-box-sizing:border-box;box-sizing:border-box;height:60px}
+.ProfileCanopy-card{-moz-box-sizing:border-box;box-sizing:border-box;height:60px;margin-right:-10px;max-width:100%;overflow:hidden;padding-top:60px;transition:padding-top .3s}
+.ProfileCanopy-nav .ProfileNav{margin-bottom:-1px}
+.ProfileCanopy.is-locked .ProfileCanopy-inner{position:fixed;top:0;-webkit-transform:translateZ(0);transform:translateZ(0);width:100%}
+.ProfileCanopy.is-locked .ProfileCanopy-header{cursor:pointer}
+.ProfileCanopy.is-locked .ProfileCanopy-avatar{bottom:100px}
+.ProfileCanopy.is-locked .ProfileCanopy-card{padding-top:0}
+@media(min-width:1100px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:300px}}
+@media(min-width:1200px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:320px}}
+@media(min-width:1370px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:360px}}
+@media(min-width:1450px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:380px}}
+@media(min-width:1510px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:420px}}
+@media(min-width:1670px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:460px}}
+@media(min-width:1820px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:500px}}
+@media(min-width:1990px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:540px}}
+@media(min-width:2150px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:580px}}
+@media(min-width:2300px){
+.ProfileCanopy--large,.ProfileCanopy--large .ProfileCanopy-header{height:600px}}
+.AppContainer{max-width:1236px;min-width:1236px}
+.AppContainer{-webkit-filter:blur(10px);filter:blur(10px)}
+.AppContainer{margin:0 auto;max-width:890px}
+@media screen and (min-width:1236px){
+.AppContainer{max-width:1190px}}
+.AppContent{padding:56px 14px 15px;position:relative}
+.topbar-spacer+#page-outer .AppContent{padding-top:10px}
+.AdaptiveSearchPage .topbar-spacer+#page-outer .AppContent,.ProfilePage .topbar-spacer+#page-outer .AppContent{padding-top:0}
+@media screen and (min-width:1236px){
+.PermalinkProfile-background .AppContainer{max-width:1290px}}
+.PermalinkPage .TweetArrows,.ProfilePage .TweetArrows{display:block}
+.ProfilePage{background-image:none!important;background-color:#f5f8fa!important;line-height:1.375;min-width:936px}
+.ProfilePage .content-main{border-radius:0;float:none;position:relative;width:auto}
+.ProfilePage.three-col .AppContent-main.content-main{float:none;margin:0}
+.ProfilePage .AppContent{padding:46px 0 0}.ProfilePage .topbar-with-navBanner+#page-outer 
+.AppContent{padding-top:91px}
+.ProfilePage .withheld-message{margin:10px 0}
+.ProfilePage--withBlockedWarning.is-showingWarning .GridTimeline,.ProfilePage--withBlockedWarning.is-showingWarning #timeline,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileHeading-content,.ProfilePage--withBlockedWarning.is-showingWarning .PhotoRail-heading,.ProfilePage--withBlockedWarning.is-showingWarning .PhotoRail-mediaBox,.ProfilePage--withBlockedWarning.is-showingWarning .PhotoRail-headingText,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileUserList,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileHeaderCard-bio,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileHeaderCard-location,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileHeaderCard-url,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileHeaderCard-joinDate,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileHeaderCard-birthdate,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileMessagingActions,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileNav-item--tweets,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileNav-item--following,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileNav-item--followers,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileNav-item--favorites,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileNav-item--more,.ProfilePage--withBlockedWarning.is-showingWarning .ProfileNav-item--lists{display:none}
+.ProfilePage--withBlockedWarning.is-showingWarning .BlockedWarningTimeline{display:inline-block}
+.ProfilePage .ProfileNav-item--userActions.profile-blocks-you .user-actions-follow-button{display:none}
+.ProfilePage-editingButtons,.ProfilePage-editingOverlay,.ProfilePage .ProfileHeaderCardEditing,.ProfilePage .ProfileAvatarEditing,.ProfilePage .ProfileHeaderEditing,.ProfilePage-testForEditingCss{display:none}
+
+
+
+.DashboardProfileCard {
+    border:5px solid #e1e8ed;
+    background:#FFF;
+    border-radius:6px
+}
+
+.DashboardProfileCard-bg { 
+    background-size:100%;
+    border-bottom:1px solid #e1e8ed;
+    height:95px;
+    border-radius:4px 4px 0 0;
+    background-position:0 50%;
+    width:100%;
+    padding:0 1px;
+    margin-left:-1px;
+    margin-top:-1px;
+     
+    background-image: url(https://pbs.twimg.com/profile_banners/2408188201/1450088645/web_retina); 
+    
+}
+
+.u-inlineBlock {
+    display:inline-block!important;
+    max-width:100%
+}
+  
+.DashboardProfileCard-avatarImage {
+  margin:15px 0 0 18px;
+  text-shadow:0 1px 2px rgba(0,0,0,.33)
+}

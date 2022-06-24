@@ -1,0 +1,429 @@
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orge582856" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Ten step proof of the Representation Formula</a>
+</h3>
+</div>
+<div id="notes-section-orge582856" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-1">
+<ol class="org-ol">
+<li>Monotonicity (via Li-Yau differential Harnack) (proof sketch)</li>
+<li>Bernstein theorem for completely monotone functions (won't prove)</li>
+<li>Apply Fubini</li>
+<li>\textbf{Apply inverse Laplace transform}</li>
+<li>Integral estimate</li>
+<li>PDE for \(h(\cdot, t)\)</li>
+<li>Harnack inequality for measures</li>
+<li>Radon-Nikodym</li>
+<li>PDE for \(\tfrac{d\nu_x}{d\nu_0}\)</li>
+<li>Apply representation formula (Caffarelli-Littman) (won't prove)</li>
+</ol>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org71ea2c7" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 4: Inverse Laplace transform</a>
+</h3>
+</div>
+<div id="notes-section-org71ea2c7" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-2">
+<p>
+So
+\[
+\int_0^{\infty} e^{-ts} h(x, s) ds = \frac{1}{t} u(x, -t).
+\]
+Bernstein gives extension of \(t\) into right half complex plane and heat equation estimates give Laplace transform is invertible,
+\[
+h(x, t) = \frac{1}{2\pi i} \int_{-1-i\infty}^{-1+it} e^{st} \frac{u(x, -s)}{s} ds.
+\]
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org49a6433" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 5: Integral estimate</a>
+</h3>
+</div>
+<div id="notes-section-org49a6433" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-3">
+<p>
+Recall that \(\Delta f^x(t) + \partial_t f^x(t) = 0\) in \(\RR^n \times [0, \infty)\). Testing against a smooth cut-off function \(\phi \in C^{\infty}_c(\RR^n \to \RR)\),
+</p>
+\begin{align*}
+\partial_t \int_{\RR^n} f^x(t) \phi(x) dx &= - \int_{\RR^n} \phi(x) \Delta f^x dx \\
+&= -\int_{\RR^n} \Delta \phi (x) f^x (t) dx \\
+&= -\int_{\RR^n} \int_0^{\infty} s e^{-ts} \phi(x) d\nu(x, s).
+\end{align*}
+<p>
+Thus
+\[
+\int_{\RR^n} \int_0^{\infty} se^{-ts} \phi(x) d\nu(x, s) = \int_{\RR^n}\int_0^{\infty} e^{-ts} \Delta \phi(x) d\nu(x, s)
+\]
+which is a Laplace transform again:
+\[
+\int_0^{\infty} e^{-ts} \int_{\RR^n} (\Delta\phi(x) - s\phi(x)) dx d\nu(x, s) = 0
+\]
+for all \(t > 0\) and \(\phi \in C^{\infty}_c(\RR^n \to \RR)\).
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgf774f16" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 6: PDE for \(h(\cdot, t)\)</a>
+</h3>
+</div>
+<div id="notes-section-orgf774f16" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-4">
+<p>
+Define the signed measure \(\eta_{\phi}\) on \([0, \infty)\) by
+\[
+d\eta_{\phi} = \int_{\RR^n} (\Delta \phi(x) - s \phi(x)) d\nu(x, s).
+\]
+We've shown,
+\[
+\operatorname{LT}(\eta_{\phi}) = 0 \Rightarrow \eta_{\phi} = 0.
+\]
+That is,
+\[
+0 = \eta_{\phi}([0, t]) = \int_{\RR^n} \left[\Delta \phi(x) \underbrace{\int_0^t d\nu(x, s)}_{h(x, t)} - \phi(x) \int_0^t sd\nu(x, s) \right]dx.
+\]
+</p>
+
+<p>
+Side note:
+\[
+h(x, u) = \int_0^u d\nu(x, s)
+\]
+and so \(h = dx/d\nu(x, s)\) and we can integrate
+\[
+\int_0^t s d\nu(x, s)
+\]
+by parts. Thus
+</p>
+\begin{align*}
+\int_{\RR^n} \Delta \phi(x) \int_0^t d\nu(x, s) &= \int_{\RR^n}\phi(x) \int_0^t s d\nu(x, s) \\
+&= \int_{\RR^n} \phi(x) \left(th(x, t) - \int_0^t h(x, s)ds\right)dx
+\end{align*}
+<p>
+Because this is true for all \(\phi \in C^{\infty}_c(\RR^n \to \RR)\), \(h\) satisfies the integro-differential equation,
+\[
+\Delta h(x, t) = t h(x, t) - \int_0^t h(x, s) ds
+\]
+hence \(h\) is smooth as the solution of
+\[
+\left(\Delta - t\right) h(x, t) = - \int_0^t h(x, s) ds.
+\]
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org6af9005" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 7: Prep for Harnack</a>
+</h3>
+</div>
+<div id="notes-section-org6af9005" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-5">
+<p>
+Fix \(x\) and consider the measure \(\nu_x\):
+\[
+\nu_x([a, b]) = h(x, b) - h(x, a).
+\]
+Aim is to turn the equation for \(h\) into estimates for \(\Delta \nu\).
+</p>
+
+<p>
+We have (writing \(I = [a, b]\)),
+</p>
+\begin{align*}
+\Delta \nu_x (I) &= \Delta h(x, b) - \Delta h(x, a) \\
+&= b h(x, b) - \int_0^b h(x, s) ds \\
+&\quad - ah(x, a) + \int_0^a h(x, s) ds \\
+&= bh(x, b) - ah(x, a) - \int_a^b h(x, s) ds \\
+&= b(\underbrace{h(x, b) - h(x, a)}_{\nu_x(I)}) - \int_a^b \underbrace{h(x, s) - h(x, a)}_{\geq 0} ds
+\end{align*}
+<p>
+using side calculation: \((b-a) h(x, a) = \int_a^b h(x, a) ds\) and recalling \(h\) is non-decreasing.
+</p>
+
+<p>
+Thus,
+\[
+\Delta \nu_x (I) \leq b \nu_x (I)
+\]
+or equivalently,
+\[
+\frac{\Delta \nu_x(I)}{\nu_x(I)} \leq b.
+\]
+</p>
+
+<p>
+Similarly, from below,
+</p>
+\begin{align*}
+\Delta \nu_x (I) &= b h(x, b) - ah(x, a) - \int_a^b h(x, s) ds \\
+&= a(\underbrace{h(x, b) - h(x, a))}_{\nu_x(I)} - \int_a^b \underbrace{h(x, s) - h(x, b)}_{\leq 0} ds \\
+&\geq a \nu_x(I).
+\end{align*}
+
+<p>
+Thus
+\[
+\frac{\Delta \nu_x(I)}{\nu_x(I)} \geq a.
+\]
+</p>
+
+<p>
+Let
+\[
+c(x) = \frac{\Delta \nu_x (I)}{\nu_x (I)}
+\]
+satisfies,
+\[
+\abs{c(x)} \leq b
+\]
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-orgc03d303" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 8: Harnack</a>
+</h3>
+</div>
+<div id="notes-section-orgc03d303" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-6">
+<p>
+The Harnack inequality for \(L = \Delta - C\) with \(I = [0, b]\) gives,
+\[
+\nu_x(I) \leq c(\abs{x}, b) \nu_0(I).
+\]
+That is \(\nu_x\) is absolutely continuous with respect to \(\nu_0\).
+</p>
+
+<p>
+Radon-Nikodym then gives,
+\[
+\frac{d\nu_x}{d\nu_0}(s) \leq c(\abs{x}, b), \quad s \leq b.
+\]
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org9d0fb4f" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 9: PDE for \(\tfrac{d\nu_x}{d\nu_0}\)</a>
+</h3>
+</div>
+<div id="notes-section-org9d0fb4f" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-7">
+<p>
+From the integral estimate we obtained,
+\[
+\int_0^{\infty} e^{-ts} \int_{\RR^n} (\Delta \phi(x) - s\phi(x)) d\nu_x (s) = 0.
+\]
+Now we are able to make a change of variables:
+\[
+0 = \int_0^{\infty} e^{-ts} \left(\int_{\RR^n} (\Delta \phi(x) - s\phi(x)) \frac{d\nu_x}{d\nu_0} (s) dx\right) d\nu_0(s)
+\]
+This is the Laplace transform of the signed measure \(\int_{\RR^n} (\Delta \phi(x) - s\phi(x)) \frac{d\nu_x}{d\nu_0} (s) dx\) so for \(\nu_0\)-a.e. \(s\) we have,
+\[
+\int_{\RR^n} (\Delta \phi(x) - s\phi(x)) \frac{d\nu_x}{d\nu_0} (s) dx = 0
+\]
+for every \(\phi \in C^{\infty}_c(\RR^n \to \RR)\). So, for \(\nu_0\)-a.e. \(s\),
+\[
+(\Delta - s) \frac{d\nu_x}{d\nu_0} = 0
+\]
+and \(\frac{d\nu_x}{d\nu_0}\) is smooth.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org9cfdf10" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Step 10: Caffarelli-Littman `82</a>
+</h3>
+</div>
+<div id="notes-section-org9cfdf10" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-8">
+<p>
+See also Kaprelovic `67 and Koranyi `79.
+</p>
+
+<p>
+From
+\[
+(\Delta - s) \frac{d\nu_x}{d\nu_0} = 0
+\]
+we have the representation formula,
+\[
+\frac{d\nu_x}{d\nu_0} (s) = \int_{\mathbb{S}^{n-1}} e^{x\cdot \xi\sqrt{s}} d\mu_s(\xi)
+\]
+for \(\mu_s\) a Borel measure on \(\mathbb{S}^{n-1}\).
+</p>
+
+<p>
+This completes the proof because,
+\[
+u(x, -t) = \int_0^{\infty} e^{-st} d\nu_x(s)
+\]
+implies
+\[
+u(x, t) = \int_0^{\infty} \int_{\mathbb{S}^{n-1}} e^{st + x \cdot \xi \sqrt{s}} d\mu_s(\xi) d\nu_0(s).
+\]
+\qed
+</p>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org9dbffaa" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Remarks on Manifold Setting</a>
+</h3>
+</div>
+<div id="notes-section-org9dbffaa" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-9">
+<p>
+Replace \(\RR^n\) with a Riemannian manifold \((M^n, g)\).
+</p>
+
+<p>
+For \((M, g)\) complete with \(\Ric \geq 0\) Li-Yau still applies to give
+\[
+u(x, t) = \int_0^{\infty} e^{ts} h(s, x) dx
+\]
+where \(h\) solves
+\[
+(\Delta - s) h(s, x) = 0.
+\]
+</p>
+
+<p>
+<b>Classifying solutions of this equation is the hard part.</b>
+</p>
+
+<p>
+Key concept: Martin boundary.
+(Martin '41, Murata ('86, '93, '02, '07)
+</p>
+
+<p>
+The general theory gives,
+\[
+h(x) = \int_{\Sigma_0} P_s(x, w) d\mu(w)
+\]
+for \(\mu\) a unique, non-negative Borel measure on \(\Sigma\) with \(\mu(\Sigma - \Sigma_0) = 0\).
+</p>
+
+<p>
+Here,
+\[
+\Sigma_0 = \{[w] : P(\cdot, w) \text{ is minimal}\}
+\]
+where the term <i>minimal</i> means that if \(0 \leq v(x) \leq P(x, w)\) then \(v(x) = P(x, w)\). Also,
+</p>
+
+<p>
+\[
+P_s(x, y) = \begin{cases}
+\frac{\Gamma_s(x, y)}{\Gamma_s(x_0, y)}, & y \ne x_0 \\
+0, & y = x_0, x\ne y \\
+1, & x = y = x_0.
+\end{cases}
+\]
+</p>
+
+<p>
+\(\Gamma_s\) is the minimal Green's function for \(\Delta - s\).
+</p>
+
+<div class="theorem">
+<p>
+[Lin-Zhang]
+</p>
+
+<p>
+Let \((M, g)\) be a complete Riemannian manifold with \(\Ric \geq 0\). Suppose \(u\) is a non-negative, ancient solution of \(\partial_t u = \Delta_g u\). Then
+</p>
+<ul class="org-ul">
+<li>\(u(x, -t)\) is completely monotone in \(t\),</li>
+<li>\(\exists\) family of non-negative Borel measures \(\mu = \mu(\cdot, s)\) on the Martin boundary, \(\Sigma_s\) for \(\Delta - s\), and a Borel measure \(\rho\) on \([0, \infty)\) such that</li>
+</ul>
+<p>
+\[
+u(x, t) = \int_0^{\infty} \int_{\Sigma_s} e^{ts} P_s(x, w) d\mu(w, s) d\rho(s).
+\]
+</p>
+
+</div>
+
+<div class="remark">
+<p>
+The condition \(\Ric\geq 0\) is not strictly necessary. It may be replaced by something like volume doubling and Poincare inequality.
+</p>
+
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="panel panel-default notes-panel">
+<div class="panel-heading">
+<h3><a href="#notes-section-org1019a59" data-toggle="collapse" class="notes-toggle"><i class="notes-arrow fa fa-caret-down px-1"></i>Questions</a>
+</h3>
+</div>
+<div id="notes-section-org1019a59" class="panel-collapse collapse">
+<div class="panel-body">
+<div class="outline-text-2" id="text-10">
+<ul class="org-ul">
+<li>What are conditions on \((M, g)\) such that
+\[
+  \Sigma_{s_1} \simeq \Sigma_{s_2}
+  \]
+in some sense such as under the motion of a Killing or conformal Killing field.</li>
+<li>Are there conditions determining the structure of \(\Sigma_s\) (compare Schoen for bounded sectional curvature).</li>
+<li>What is \(P_s\)?</li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>

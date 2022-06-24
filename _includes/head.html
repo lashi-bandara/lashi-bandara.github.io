@@ -1,0 +1,29 @@
+<head>
+
+  {% include analytics.html %}
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+
+  <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+  <meta name="author" content="{{ site.author }}">
+
+  <!-- Bootstrap Core CSS -->
+  <link rel="stylesheet" href="{{ "/css/bootstrap.min.css" | prepend: site.baseurl }}">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="{{ "/css/font-awesome.min.css" | prepend: site.baseurl }}">
+  <link rel="stylesheet" href="{{ "/css/academicons.min.css" | prepend: site.baseurl }}">
+
+  <!-- Social icons -->
+  <link rel="stylesheet" href="{{ "/css/bootstrap-social.css" | prepend: site.baseurl }}">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
+
+</head>

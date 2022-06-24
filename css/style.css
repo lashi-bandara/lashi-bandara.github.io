@@ -1,0 +1,349 @@
+/* Custom CSS */
+
+.masthead {
+  height: 37.3vw;
+  width: 100%;
+  max-height: 450px;
+  max-width: 1200px;
+  background: url('/img/banner.jpg') top center no-repeat;
+  margin: 0 auto;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.profile-frame {
+    background: #FFF;
+    border: 5px solid #fff;
+    border-radius: 12px;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 1px 1px rgba(136,153,166,0.15);    
+    position: absolute;
+    bottom: -70px;
+    z-index: 3;
+}
+
+img.profile-img {
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    border-radius: 8px;
+}
+
+.speaker-profile-frame {
+    background: #FFF;
+    border: 5px solid #fff;
+    border-radius: 12px;
+    height: 100px;
+    width: 100px;
+    /* position: absolute; */
+}
+
+img.speaker-profile-img {
+    height: 100%;
+    width: auto;
+    left: 0;
+    top: 0;
+    /* position: absolute; */
+    overflow: hidden;
+    /* padding: 5px 5px 5px 5px; */
+}
+
+
+.navbar {
+   background-color: transparent;
+   background: transparent;
+   border-color: transparent;
+   
+}
+
+.navbar-xs .navbar-nav > li > a, .navbar-brand {
+    margin-top: 5px !important; 
+    margin-bottom: 5px !important;
+    height: 30px;
+}
+
+.navbar-xs {
+    min-height: 30px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+}
+
+.main-container {
+    background-color: #f5f8fa;
+    padding-top: 10px;
+    border-top-style: solid;
+    border-top-color: #D9EDF7;
+    border-top-width: thin;
+}
+
+.right-sidebar .panel-heading {
+   background-color: transparent !important;
+   background: transparent !important;
+}
+
+.content-panel .panel-heading {
+   background-color: transparent !important;
+   background: transparent !important;
+   text-align: center;
+}
+
+.social > ul {
+    overflow: auto;
+}
+ 
+.social > ul > li {
+    list-style-type: none;
+    float: left;
+}
+
+.research-panel .panel-heading {
+   background-color: transparent !important;
+   background: transparent !important;
+}
+
+.research-panel .panel-title {
+    font-weight: bold;
+}
+
+.research-panel .panel-heading-ul {
+    list-style-type: none !important;
+}
+
+.research-panel .panel-body > ul {
+    list-style-type: none;
+}
+
+ul.panel-bullet {
+    list-style-type: disc !important;
+}
+
+.research-panel .panel-footer {
+   background-color: transparent !important;
+   background: transparent !important;
+   text-align: center;
+}
+.research-panel .panel-footer > ul {
+    overflow: auto;
+}
+
+.research-panel .panel-footer > ul > li {
+    list-style-type: none;
+    float: left;
+}
+
+.pab-embed-responsive {
+    position:relative;
+    display:block;
+    height:0;
+    padding:0;
+    overflow:hidden;
+}
+.pab-embed-responsive .pab-embed-responsive-item,.pab-embed-responsive embed,.pab-embed-responsive iframe,.pab-embed-responsive object,.pab-embed-responsive video {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:0
+}
+
+.pab-embed-responsive-16by9{
+    padding-bottom:56.25%
+}
+
+.pab-embed-responsive-4by3{
+    padding-bottom:75%
+}
+
+.pab-embed-responsive-custom {
+    padding-bottom:90%;
+    overflow: hidden;
+}
+
+.broken-iso-scroll {
+    -webkit-overflow-scrolling: touch;
+}
+
+.notes-panel .panel-heading {
+   background-color: grey !important;
+   background: transparent !important;
+   text-align: left;
+}
+
+.proof:before {
+    content: 'Proof';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.proof {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.ex:before {
+    content: 'Exercise';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.ex {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.thm,.theorem:before {
+    content: 'Theorem';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.thm,div.theorem {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.lem,.lemma:before {
+    content: 'Lemma';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    float: center;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.lem,div.lemma {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.defn:before {
+    content: 'Definition';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.defn {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.eg:before {
+    content: 'Example';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.eg {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.rem,.remark:before {
+    content: 'Remark';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.rem,div.remark {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}
+
+.cor:before {
+    content: 'Corollary';
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    width: 100%;
+    padding: 1%;
+    border: solid;
+    border-width: 0 0 1px 0;
+    margin-bottom: 3%;
+    border-image: linear-gradient(to right, transparent, black, transparent) 100;
+}
+
+div.cor {
+    border-style: solid;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    padding: 1%;
+    margin: 1%;
+}

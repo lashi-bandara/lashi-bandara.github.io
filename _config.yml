@@ -1,0 +1,24 @@
+# Site settings
+title: Lashi Bandara
+description: "Lashi Bandara"
+author: "Lashi Bandara"
+header-img: img/background.jpg
+profile-img: img/profile.jpg
+email: lashi.bandara@brunel.ac.uk
+baseurl: ""
+url: "http://lashi-bandara.github.io"
+
+# User accounts
+github_username:  lashi-bandara
+facebook_username:  lashputin
+skype_username: lashputin
+orcid: 0000-0003-1160-2261
+arxiv_identifier: bandara_l_1 
+researchgate_username: Lashi-Bandara
+googlescholar_username: _D55D0sAAAAJ
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
