@@ -10,6 +10,10 @@ description: "Lashi Bandara"
     </ul>
 
       <ul>
+ 	<li> {{ site.facebook_username }} </li> 
+
+	<li> {{ facebook_username }} </li> 
+
 	<li>Email: <a href="mailto:lashi.bandara@brunel.ac.uk">lashi.bandara@brunel.ac.uk</a></li>
 	<li>Office: TOWA210</li>
 	<li>Mailing Address:  
@@ -25,7 +29,7 @@ description: "Lashi Bandara"
     <div class="social">
       <ul>
 	<li>
-	  <a href="http://facebook.com/lashputin" class="btn btn-social-icon btn-facebook" target="_blank">
+	  <a href="http://facebook.com/{{ site.facebook_username }}" class="btn btn-social-icon btn-facebook" target="_blank">
 	    <span class="fa fa-facebook"></span>
 	  </a>
 	</li>
@@ -39,31 +43,31 @@ description: "Lashi Bandara"
 
 
 	<li>
-	  <a href="http://github.com/lashi-bandara" class="btn btn-social-icon btn-github" target="_blank">
+	  <a href="http://github.com/{{ site.github_username }}" class="btn btn-social-icon btn-github" target="_blank">
 	    <span class="fa fa-github"></span>
 	  </a>
 	</li>
 
 	<li>
-	  <a href="http://researchgate.com/profile/Lashi-Bandara" class="btn btn-social-icon btn-researchgate" target="_blank">
+	  <a href="http://researchgate.com/profile/{{ site.researchgate_username }}" class="btn btn-social-icon btn-researchgate" target="_blank">
 	    <i class="ai ai-researchgate"></i>
 	  </a>
 	</li>
 
 	<li>
-	  <a href="http://orcid.org/0000-0003-1160-2261" class="btn btn-social-icon btn-orcid" target="_blank">
+	  <a href="http://orcid.org/{{ site.orcid }}" class="btn btn-social-icon btn-orcid" target="_blank">
 	    <i class="ai ai-orcid"></i>
 	  </a>
 	</li>
 
 	<li>
-	  <a href="http://arxiv.org/a/bandara_l_1" class="btn btn-social-icon btn-arxiv" target="_blank">
+	  <a href="http://arxiv.org/a/{{ site.arxiv_identifier }}" class="btn btn-social-icon btn-arxiv" target="_blank">
 	    <i class="ai ai-arxiv"></i>
 	  </a>
 	</li>
 
 	<li>
-	  <a href="https://scholar.google.com/citations?user=_D55D0sAAAAJ" class="btn btn-social-icon btn-google-scholar" target="_blank">
+	  <a href="https://scholar.google.com/citations?user={{ site.googlescholar_username }}" class="btn btn-social-icon btn-google-scholar" target="_blank">
 	    <i class="ai ai-google-scholar"></i>
 	  </a>
 	</li>

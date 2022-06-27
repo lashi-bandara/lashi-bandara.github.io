@@ -1,38 +1,240 @@
 ---
 layout: page
-title: Publications 
-category: Publications
+title: Publications, preprints, unpublished docs 
+description: "Lashi Bandara - Publications"
 ---
 
-{% for post in site.categories[page.category] %}
-<div class="panel panel-default research-panel">
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Mathematics Publications</h1>
+  </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-sm-12">
-	<h1 class="panel-title" class="display-1">
-	  {{ post.title }}
-	</h1>
-	<ul class="panel-heading-ul">
-	  <li>{{ post.journal }} <a href="https://dx.doi.org/{{ post.doi }}" target="_blank">{{ post.doi}}</a></li>
-	  {% unless post.collaborators == '' %}
-	  <li>With {{ post.collaborators | join }}</li>
-	  {% endunless %}
-	</ul>
-      </div>
+    <ol reversed>
+	<li> 
+	<i>Boundary value problems for general first-order elliptic differential operators</i>, (with C. Bär), J. Funct. Anal., 282(12):109445, 2022.
+	<a href="https://arxiv.org/abs/1906.08581">[Arxiv version]</a>.
+	<a href="https://doi.org/10.1016/j.jfa.2022.109445">[Journal version]</a> 
+	</li> 
 
-      <div class="col-sm-3">
-	<a href="http://arxiv.org/abs/{{ post.arxiv }}" class="btn btn-social-icon btn-arxiv" target="_blank">
-	  <i class="ai ai-arxiv" alt="arxiv" title="arxiv"></i>
-	</a>
-	<a href="http://www.researchgate.com/publication/{{ post.researchgate }}" class="btn btn-social-icon btn-researchgate" target="_blank">
-	  <i class="ai ai-researchgate" alt="researchgate" title="researchgate"></i>
-	</a>
-	<a href="#abstract-{{ post.paper-id }}" class="show-hide-abstract" data-toggle="collapse">Abstract<i class="fa fa-caret-down" class="abstract-arrow" alt="Show abstract" title="Show abstract"></i></a>
-      </div>
-    </div>
-    <div id="abstract-{{ post.paper-id }}" class="collapse">
-      {{ post.excerpt }}
-    </div>
+
+	<li> 
+	<i> Eigenvalue asymptotics for weighted Laplace equations on rough Riemannian manifolds with boundary</i>, (with M. Nursultanov and J. Rowlett), Ann. Sc. Norm. Super. Pisa Cl. Sci., Vol. XXII, Issue 4, 2021. 
+	<a href="https://arxiv.org/abs/1811.08217">[Arxiv version]</a>.
+	<a href="https://doi.org/10.2422/2036-2145.201902_003">[Journal version]</a> 
+	</li>
+
+	<li>
+	<i> Heat kernels and regularity for rough metrics on smooth manifolds</i>, (with P. Bryan),  Math. Nach., 293(12):2255–2270, 2020.
+	<a href="https://arxiv.org/abs/1712.09287">[Arxiv version]</a>.
+	<a href="https://doi.org/10.1002/mana.201800459">[Journal version]</a>
+	</li> 
+
+
+	<li> 
+	<i>Functional calculus and harmonic analysis in geometry</i>, SPJM,  Special Section: An Homage to Manfredo P. do Carmo. (Online first).
+	<a href="https://arxiv.org/abs/1812.11795">[Arxiv version]</a>
+	<a href="https://link.springer.com/article/10.1007/s40863-019-00149-0">[Journal version]</a>.
+	</li> 
+
+
+	<li>
+	<i>  Riesz continuity of the Atiyah-Singer Dirac operator under perturbations of local boundary conditions</i>, (with A. Ros&eacute;n),  Comms. PDE. Volume 44, Issue 12, 2019, Pages 1253-1284. 
+	<a href="https://arxiv.org/abs/1703.06548">[Arxiv version]</a>
+	<a href="https://doi.org/10.1080/03605302.2019.1611847">[Journal Version]</a>.
+	</li> 
+	
+
+
+	<li>
+	<i>  Riesz continuity of the Atiyah-Singer Dirac operator under perturbations of the metric</i>, (with A. McIntosh and A. Ros&eacute;n),  Math. Ann.  Volume 370, Issue 1–2, 2018, Pages  863–915.
+	<a href="http://arxiv.org/abs/1603.03647">[Arxiv version]</a>
+	<a href="http://link.springer.com/article/10.1007/s00208-017-1610-7">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i>  Essential self-adjointness of powers of first-order differential operators on non-compact manifolds with low-regularity metrics </i></a>, 
+	(with H. Saratchandran),  J. Funct. Anal., Volume 273, Issue 12, 2017, Pages 3719-3758.
+	<a href="http://arxiv.org/abs/1606.06190">[Arxiv version]</a>
+	<a href="http://www.sciencedirect.com/science/article/pii/S0022123617303403">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i> Continuity of solutions to space-varying pointwise linear elliptic equations</i></a>, Publ. Mat. 61 (2017), no. 1, 239-258.
+	<a href="http://arxiv.org/abs/1505.06150">[Arxiv version]</a>
+	<a href="http://www.raco.cat/index.php/PublicacionsMatematiques/article/view/10.5565_PUBLMAT%2061117%2009">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i> Geometric singularities and a flow tangent to the Ricci flow</i></a>, (with S. Lakzian and M. Munn),
+	Ann. Sc. Norm. Super. Pisa Cl. Sci.  Vol. 17, No 2, 2017, pages. 763-804.
+	<a href="http://arxiv.org/abs/1505.05035">[Arxiv version]</a>
+	<a href="http://annaliscienze.sns.it/index.php?page=Article&id=478">[Journal version]</a>
+	</li> 
+
+	<li>
+	<i>Rough metrics on manifolds and quadratic estimates</i></a>,  Math. Z. 283 (2016), no. 3-4, 1245-1281.
+	<a href="http://arxiv.org/abs/1402.2030">[Arxiv version]</a>
+	<a href="http://link.springer.com/article/10.1007%2Fs00209-016-1641-x">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i>Self-adjointness of the Gaffney Laplacian on vector bundles</i></a>, (with O. Milatovic), Math. Phys. Anal. Geom. 18 (2015), no. 1, Art. 17, 14 pp.
+	<a href="http://arxiv.org/abs/1409.5212">[Arxiv version]</a>
+	<a href="http://link.springer.com/article/10.1007%2fs11040-015-9188-3">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i>The Kato square root problem on vector bundles with generalised bounded geometry</i>, (with A. McIntosh),  J. Geom. Anal. 26 (2016), no. 1, 428-462.
+	<a href="http://arxiv.org/abs/1203.0373">[Arxiv version]</a>
+	<a href="http://dx.doi.org/10.1007/s12220-015-9557-y">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i>Density problems on vector bundles and manifolds</i>, Proc. Amer. Math. Soc. 142 (2014), no. 8, 2683-2695.
+	<a href="http://arxiv.org/abs/1207.6440">[Arxiv version]</a>
+	<a href="http://www.ams.org/journals/proc/2014-142-08/S0002-9939-2014-12284-2/home.html">[Journal version]</a>.
+	</li> 
+
+	<li>
+	<i>Square roots of perturbed subelliptic operators on Lie groups</i>, (with A.F.M ter Elst and A. McIntosh), 
+	Studia Math. 216 (2013), no. 3, 193-217. 
+	<a href="http://arxiv.org/abs/1204.5236">[Arxiv version]</a>
+	<a href="http://journals.impan.pl/cgi-bin/doi?sm216-3-1">[Journal version]</a>.	 
+	</li> 
+
+	<li>
+	<i>Quadratic Estimates and perturbations of Dirac type operators on doubling measure metric spaces</i>, AMSI
+	International Conference on Harmonic Analysis and Applications, Proc. Centre Math. Appl. Austral. Nat. Univ.,
+	vol. 45, Austral. Nat. Univ., Canberra, 2011, pp. 1-21.
+	<a href="http://arxiv.org/abs/1107.3905">[Arxiv version]</a>
+	<a href="http://maths-proceedings.anu.edu.au/045/bandara-final.pdf">[Journal version]</a>.
+	</li> 
+
+    </ol>
+
   </div>
 </div>
-{% endfor %}
+
+
+
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Other publications Preprints</h1>
+  </div>
+  <div class="panel-body">
+    <ol reversed>
+	<li>[
+	<i>ShapeRotator: An R tool for standardized rigid rotations of articulated three-dimensional structures with application for geometric morphometrics</i>, Marta Vidal-Garc&iacute;a,  Lashi Bandara,  J. Scott Keogh, Ecology and Evolution.
+	<a href="https://doi.org/10.1002/ece3.4018">[Journal version]</a>.
+	</li> 
+
+    </ol>
+  </div>
+</div>
+
+
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Preprints</h1>
+  </div>
+  <div class="panel-body">
+    <ol reversed>
+
+    	<li><i> The relative index theorem for general first-order elliptic operators</i>,
+	<a href="https://arxiv.org/abs/2111.12352">[Arxiv version]</a> 
+	</li>   
+    
+	<li><i>Realisations of elliptic operators on compact manifolds with boundary</i>, (with M. Goffeng, H. Saratchandran), 
+	<a href="https://arxiv.org/abs/2104.01919">[Arxiv version]</a> 
+	</li> 
+</ol>
+  </div>
+</div>
+
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Published books</h1>
+  </div>
+  <div class="panel-body">
+    <ol reversed>
+	
+	<li><i> Real Harmonic Analysis</i>, Lectures by Pascal Auscher with the assistance of Lashi Bandara, 
+	<a href="http://eview.anu.edu.au/">ANU Eview</a>, 2012, 
+	<a href="http://eview.anu.edu.au/harmonic/index.php">[Online version]</a>.
+	</li> 
+
+    </ol>
+  </div>
+</div>
+
+
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Unpublished books</h1>
+  </div>
+  <div class="panel-body">
+    <ol reversed>
+
+	<li><i> Boundary value problems and index theory</i>, Lashi Bandara, 
+	<a href="bvpit-25012022.pdf">[BVPIT - 25012022]</a>, 2022. 
+	</li> 
+
+    </ol>
+  </div>
+</div>
+
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Thesis</h1>
+  </div>
+  <div class="panel-body">
+
+  <dd> <a href="http://hdl.handle.net/1885/10690">Geometry and the Kato Square root problem</a>
+
+  
+
+ </div>
+</div>
+
+
+<div class="panel panel-default content-panel">
+  <div class="panel-heading">
+    <h1 class="panel-title">Other unpublished documents</h1>
+  </div>
+  <div class="panel-body">
+    <ul> 
+
+	<li><a href="mins.pdf">
+	Logic and Mathematics: Mathematicians in Schools program</a>
+	(ANU/Hawker College, Jul 2011)
+	</li>
+
+	<li><a href="fcnoncommuting.pdf">
+	An Overview of Functional Calculi for Noncommuting Operators</a>
+	(ANU, Dec 2009)
+	</li> 
+
+	<li><a href="cauchy.pdf">
+	Motivation towards Clifford Analysis: The classical Cauchy's Integral Theorem from a Clifford perspective</a>  
+	(ANU, Nov 2009)
+	</li> 
+
+	<li> <a href="ctic.pdf">
+	White's Compactness Theorem for Integral Currents</a> 
+	(Honours Thesis, Monash University, Oct 2006)
+
+	<li> <a href="zfw.pdf">
+	Zermelo-Frankel Set Theory and Well Orderings</a> 
+	(Honours Essay, Monash University, May 2006)
+	</li>
+
+	 
+	<li> <a href="monograph.pdf">
+	Graph Colouring with Small Monochromatic Components</a> 
+	(Final year Computer Science project, Monash University, June 2004)
+	</li>
+
+
+    </ul>
+  </div>
+</div>
