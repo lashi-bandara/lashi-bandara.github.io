@@ -10,13 +10,26 @@ baseurl: ""
 url: "http://lashi-bandara.github.io"
 
 # User accounts
-github_username: lashi-bandara
-facebook_username: lashputin
-skype_username: lashputin
-orcid: 0000-0003-1160-2261
-arxiv_identifier: bandara_l_1
-researchgate_username: Lashi-Bandara
-googlescholar_username: _D55D0sAAAAJ
+twitter_username: pabryan78
+github_username:  pabryan
+facebook_username:  doctorpabryan
+googleplus_username: PaulBryanguy
+skype_username: paul_a_bryan
+orcid: 0000-0001-8155-6091
+arxiv_identifier: bryan_p_1
+researchgate_username: Paul_Bryan3
+googlescholar_username: buI6MKsAAAAJ
+scirate_username: paul-bryan
+
+
+
+#github_username: lashi-bandara
+#facebook_username: lashputin
+#skype_username: lashputin
+#orcid: 0000-0003-1160-2261
+#arxiv_identifier: bandara_l_1
+#researchgate_username: Lashi-Bandara
+#googlescholar_username: _D55D0sAAAAJ
 
 # Build settings
 markdown: kramdown
