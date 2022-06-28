@@ -50,8 +50,7 @@ def process_dir(top_dir, opts):
         print('cannot create file %s %s' % (index_path, e))
         return
 
-    index_file.write("""
----
+    index_file.write("""---
 layout: page
 title: Taken Notes
 description: "Lashi Bandara - Taken Notes"
