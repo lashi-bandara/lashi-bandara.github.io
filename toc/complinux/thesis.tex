@@ -1,0 +1,206 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage{setspace}
+\usepackage[pdftex]{graphicx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage{makeidx}
+\usepackage{nomencl}
+\usepackage[bookmarks=true]{hyperref}   % Hyperref in DVI and PDF
+\usepackage{esint}
+\usepackage{dsfont}
+\usepackage{upgreek}
+\usepackage{color}
+\usepackage[toctitles]{titlesec}
+%\usepackage{showkeys} 			% To see what citations point where
+\usepackage[paper=a4paper,truedimen,margin=20mm,marginparsep=0mm]{geometry} 
+
+
+% Shows the frame on each page: 
+%\geometry{showframe}
+
+
+% One half spacing as specified by ANU Policy
+\onehalfspace		
+
+% Prevent large ``holes'' in document by horizontal stretching
+
+%\raggedbottom
+
+% Page breaks in align environment
+\allowdisplaybreaks[4]
+
+% Sloppy whitespacing, so that
+% it favourably moves equations etc 
+% to the next line to avoid margin violations
+\sloppy
+
+% For highlighting purposes
+\newcommand{\Bk}{\colour{black}}
+\newcommand{\Rd}{\colour{red}}
+\newcommand{\Bl}{\colour{blue}}
+
+
+% This is to stop 0. INTRODUCTION
+% appearing in the header. The nubmer is only 
+% included for chapter value > 0.
+\renewcommand{\chaptermark}[1]{%
+  \ifnum\value{chapter}>0
+    \markboth{\thechapter{}. #1}{}%
+  \else
+    \markboth{#1}{}%
+  \fi}
+
+
+% The following command creates a box that is useful when editing
+
+\newcommand{\todo}[1]{\vspace{5 mm}\par \noindent
+\marginpar{\textsc{}} \framebox{\begin{minipage}[c]{0.95
+\textwidth} \tt #1
+\end{minipage}}\vspace{5 mm}\par}
+
+% Suppress the word Chapter
+\renewcommand{\chaptername}{}
+
+\newcommand{\thesis}{thesis}
+
+\hypersetup{
+    colorlinks,%
+}
+
+
+% Author, title, and date.
+
+\author{Menaka Lashitha Bandara\\(Lashi Bandara)}
+\title{Geometry and the Kato Square Root Problem}
+\date{June 2013}
+
+% List of Notation
+
+\makeindex
+
+% Mathematical definitions
+\input{maths-def}
+
+% Definitions particular to the thesis
+\input{thesis-def} 
+
+
+% Jesus christ, you'd think they'd have thought
+% of a directive to produce roman numerals for referencing.
+\newcommand{\RNum}[1]{\uppercase\expandafter{\romannumeral #1\relax}}
+
+% Page Setup:
+
+%%\input{notation}
+
+% This sets the table of contents
+% depth to 1, so that we don't pick up 
+% subsections.
+\setcounter{tocdepth}{1}
+
+% Font family for tthe title 
+\newcommand{\titlefam}{\sffamily}
+
+% DOCUMENT BEGINS:
+\begin{document}
+
+\frontmatter
+
+% Start with roman page numbering.
+\pagenumbering{roman}
+
+% Titlepage
+\include{title}
+
+% Specified by ANU Policy that: 
+% Odd pages, left margin = 4cm
+% Even pages, right margin = 4cm
+% All other margins = 2cm
+% Since twoside has been specified, 
+\newgeometry{twoside, top=26mm, bottom=26mm, inner=40mm, outer=20mm}
+
+% I prefer new paragraphs to start with 
+% a baseline skip, and for new paragraphs
+% to not be indented.
+\parindent0cm
+\setlength{\parskip}{\baselineskip}
+\pagestyle{empty}
+
+
+% Declaration
+\input{dec}
+
+%\newgeometry{margin=10mm}
+
+\input{eirci}
+
+%\newgeometry{twoside, top=20mm, bottom=20mm, inner=40mm, outer=20mm}
+
+\input{ack}
+\input{abs}
+
+\setlength{\parskip}{0pt}
+\thispagestyle{empty}
+
+\tableofcontents
+
+\thispagestyle{empty}
+\setlength{\parskip}{\baselineskip}
+
+% Nomenclature (Notation)
+\renewcommand{\nomname}{Notation}
+\makenomenclature
+
+% For some reason, this is required to clear the
+% page numbers in the toc, because the
+% \thispagestyle{empty} directive only 
+% clears the number on page 2.
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+
+
+\mainmatter
+
+% We've had roman numbering up till this point.
+\pagenumbering{arabic}
+\input{intro}
+%\input{history}
+\input{prelim/prelim}
+\input{density/density}
+\input{qe/qe}
+\input{lie/lie}
+\input{mfld/mfld}
+\input{ext/ext}
+\input{fur/fur}
+
+\backmatter
+
+% Bibliography
+\cleardoublepage
+\phantomsection % This are needed because otherwise, hyperref
+		% does not link correctly to Bib, Not, Ind etc. 
+\addcontentsline{toc}{chapter}{Bibliography}
+%\bibliographystyle{amsplain}
+\bibliographystyle{aaplain}
+\bibliography{thesis}
+
+\cleardoublepage
+\phantomsection
+\markboth{\MakeUppercase\nomname}{\MakeUppercase\nomname}% maybe with \MakeUppercase
+\addcontentsline{toc}{chapter}{Notation}
+\printnomenclature
+%\label{Sect:Nomen}
+
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+\setlength{\parskip}{0mm}
+\setlength{\itemsep}{0mm}
+
+\end{document}
