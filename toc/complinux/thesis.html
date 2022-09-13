@@ -27,15 +27,24 @@ different directories. For instance, my preliminaries are
 contained in a directory called "prelim." Then, I issue 
 an \input directive as follows.
 
-</p><p> 
+</p><p>
+{% raw %}
+
 \input{prelim/prelim}
+
+{% endraw %} 
 
 </p><p>
 In my case, the file prelim/prelim.tex itself contained input
 directives of the form:
 
 </p><p>
+
+{% raw %}
+
 \input{prelim/mm}
+
+{% endraw %} 
 
 </p><p>
 This allowed me to very easily handle the entire document in a modular way, 
@@ -44,7 +53,7 @@ rather than making it difficult to manage single tex file.
 </p><p>
 NOTE: even though prelim.tex is sitting inside the prelim directory, 
 I still needed the directory included in there when issuing
-\input. I suspect this is because \input runs as a macro and it
+{% raw %} \input {% endraw %}. I suspect this is because {% raw %} \input {% endraw %} runs as a macro and it
 is evaluated at the top level, rather than locally.
 
 </p><h3>Equations/headings running beyond margins</h3>
@@ -60,289 +69,36 @@ running into the margins.
 telling LaTeX to be "sloppy" in the way it
 deals with whitespace. Simply include
 
-</p><p> \sloppy
+{% raw %}
+
+
+\sloppy
+
+{% endraw %}
 
 </p><p> in the preamble of the document.
 It is also advisable to split up
 commas as separate maths delimiters. 
 I.e., instead of
 
-</p><p> $\spt X,\ \spt Y$, 
+</p><p> 
+{% raw %}
+
+$\spt X,\ \spt Y$, 
+
+{% endraw %}
 
 </p><p> write 
 
-</p><p> $\spt X$, $\spt Y$. 
+</p><p> 
+{% raw %}
 
-</p><p> In the former case, the entire block $..$
+$\spt X$, $\spt Y$. 
+
+{% endraw %}
+
+</p><p> In the former case, the entire block {% raw %} $..$ {% endraw %}
 would get pulled to the next line if it were to 
 run into the margin, whereas, in the second
 situation, the line split would occur at the comma.
-
-</p><h3>Huge gaps in the pages</h3>
-
-Another formatting issue that often happens 
-is the introduction of very large 
-white space throught the document. This
-happens because like to prevent the breakup 
-of equations in environments like align
-whenever it can - at the cost of introducing
-vertical whitespace.
-
-<p> One way to fix it is to include in
-the preamble: 
-
-</p><p>\raggedbottom
-
-</p><p> which essentially says: keep the current behaviour
-of not breaking up equations, but don't stretch equations.
-
-</p><p> I found this to  be a suboptimal solution, 
-because instead of the whitespace being spread throughout
-the document, it becomes accumulated at the bottom,
-which is a waste of paper and not very aesthetic.
-Thus, the better solution was to tell
-LaTeX to breakup equations. This was done by: 
-
-</p><p>\allowdisplaybreaks[4]
-
-</p><p> I found that 4 was the right level of break, but
-you can, of course, experiment with this.
-NOTE: Make sure you read over your document after doing this
-because it may have mucked up the legibility of 
-your equations.
-
-</p><h3>Getting the eprint number field to appear
-for ArXiV citations</h3>
-
-I personally prefer to use the amsplain style for
-bibliography, particularly because I just rip the 
-BibTeX entry from <a href="http://www.ams.org/mathscinet">MathSciNet</a>.
-Similarly, you can do this for <a href="http://arxiv.org/">ArXiV</a>
-preprints too, from the ADS database (lined via ArXiV).
-
-<p> Obtaining the MathSciNet reference in this way has
-the advantage that the MR number is displayed
-in the citation, which makes it very easy to track down 
-the paper, especially upon reading electronic copies.
-ArXiV has a simlar Eprint number, specified 
-by a field eprint in the BibTeX entry. Unfortunately,
-the amsplain class doesn't know what to do with this.
-
-</p><p> In the file <a href="aaplain.bst">aaplain.bst</a>, I've
-hacked the amsplain BibTeX style file to use
-the eprint field, so that the eprint number
-preceded by EP is printed in the citation.
-This file needs to simply be copied to the top
-level directory of your thesis, and then
-it can be used by specifying:
-
-</p><p> \bibliography{aaplain}
-
-</p><h3>Margins and the geometry package</h3>
-
-ANU has a policy that the margins should at minimum be
-2cm, and for odd pages 4cm on the left and even pages
-4cm on the right.
-
-<p> 
-This can be achieved by using the geometry package
-by including the following in the preamble:
-
-</p><p>
-\usepackage[a4paper, twoside, margin=20mm, marginsep=20mm]{geometry}
-<br>
-\geometry{top=20mm, bottom=20mm, inner=20mm, outer=40mm},
-
-</p><p>
-The only drawback here is that this geometry becomes 
-forced on the titlepage as well. To get around this, 
-you should omit the \geometry directive, and instead, 
-use: 
-
-\newgeometry{top=20mm, bottom=20mm, inner=20mm, outer=40mm}
-
-</p><p>
-*after* your titlepage, inside  the actual document.
-NOTE: You cannot use \geometry inside the document, 
-it needs to be used in the preamble.
-
-</p><p>
-You may find that this spits out an error, and that 
-the geometry package shipped with your
-system is missing the \newgeometry command. It seems that many texlive
-distributions (at the time of writing) 
-are missing the version 5 of the geometry
-package, so you need to include 
- <a href="geometry.sty">geometry.sty</a>. 
-If this doesn't work, see  
-<a href="http://www.ctan.org/pkg/geometry">CTAN Geometry package</a>.
-
-</p><p>
-I also suggest that you use around 26mm for top and bottom margins, 
-because the 20mm looks a bit artificially compressed. The 26mm is closer
-to the latex default.
-
-</p><p>Also, you can actually look at the "frame" of your geometry 
-by issuing: 
-
-</p><p> \geometry{showframe}
-
-</p><p> in the preamble of the document.
-
-</p><h3>Page numbering, and un-numbered chapter headings</h3>
-
-I was adamant that page number 1 should correspond
-to the first page of the Introduction, and I wanted all the preceding
-pages to not have a page number. Also, I want sections like Introduction,
-Acknowledgements, Abstract, etc. to not have a chapter number.
-
-<p>
-Here is a snippet from the top part of one of these Chapters: 
-</p><p>\thispagestyle{empty} 
-<br>\chapter*{Abstract}
-<br>\thispagestyle{empty}
-
-</p><p>The directives, \thispagestyle{empty} does the clearing
-of the page numbers from the current page.
-The * in \chapter* omits including this chapter in the
-table of contents, and prevents allocating it a
-chapter number.
-
-</p><p>For the table of contents, the following is
-what worked for me: 
-
-</p><p>\thispagestyle{empty}
-<br>\tableofcontents
-<br>\addtocontents{toc}{\protect\thispagestyle{empty}}
-
-</p><p>
-The first \thispagestyle{empty} only seemed
-to clear the page number on page 2, and
-the weird \addtocontents... invocation
-seemed to do it for page 1.
-
-</p><h3>Preventing the printing of the 0 chapter number in the header</h3>
-
-I didn't want my first chapter of the thesis to be 
-"Introduction," so naturally, I did
-
-<p>\chapter*{Introduction}
-
-</p><p> But I wanted the Chapter name, "Introduction"
-run on the header. This was done by issuing: 
-
-</p><p>\chaptermark{INTRODUCTION}
-
-</p><p> However, after doing this, I found that
-it actually ran "0. INTRODUCTION" in the header. 
-This was fixed by the following snippet of code
-I ripped off somewhere on the internet: 
-
-</p><p>\renewcommand{\chaptermark}[1]{%
-<br> \ifnum\value{chapter}&gt;0
-<br>    \markboth{\thechapter{}. #1}{}%
-<br>  \else
-<br>    \markboth{#1}{}%
-<br>  \fi}
-
-</p><p> which only enables the printing of the 
-Chapter number for chapters larger than 0.
-
-
-</p><h3>PDF, citation, referencing bookmarks</h3>
-
-By using the hyperref package, PDF bookmarks and
-linking to citations, etc. are automatically enabled. 
-I encourage this strongly, because this 
-produces an electronic document which is easier to navigate.
-
-<p>
-The reference links are default a box drawn aroudn the link. 
-This can be made to look much better by using the following
-in the premable: 
-
-</p><p>\hypersetup{colorlinks}
-
-</p><p>
-Apart from that, another little trick is how to 
-enable the chapters which have no chapter numbers
-to be included in the PDF navigation bar.
-This is achived via the \pdfbookmark command.
-For the Abstract page example we gave in the
-last section, we include the following up the top
-of this section:
-
-</p><p>\pdfbookmark{Abstract}{Chap:Abs}
-
-</p><p>
-I have no idea what the {Chap:Abs} does, but
-I used a different name for each bookmark.
-
-</p><p>
-NOTE: Even though you don't have page numbers
-showing up on these pages, it's very clumsy to have
-arabic numeral numbers appearing
-on the PDF navigation bar. For that reason,
-before the titlepage, I would issue: 
-
-</p><p> \pagenumbering{roman}
-
-</p><p> 
-and then before the start of the introduction,
-switch to arabic: 
-
-</p><p>\pagenumering{arabic}
-
-</p><p>
-Also, make sure that you issue: 
-
-</p><p> \setcounter{page}{1}
-
-</p><p>just prior to the Introduction.
-
-</p><h3>Wrong page number displayed for bibliography,
-index, and nomenclature</h3>
-
-While the table of contents got all the page numbers
-right, I noticed that the bibliography, index
-and nomenclature links on the PDF index pane were all 
-a few pages off.
-
-<p> It seems that the \phantomsection command 
-after a \cleardoublepage is the way to go to fix this.
-For instance, this is how my index pages
-were produced: 
-
-</p><p>\cleardoublepage
-<br>\phantomsection
-<br>\addcontentsline{toc}{chapter}{Index}
-<br>\printindex
-
-
-</p><h3>Long section title woes</h3>
-
-Having long section titles can wreak havoc
-in the header. One way to fix it is to specify: 
-
-<p> 
-\sectionmark{Short Section}
-
-</p><p> Unfortunately, if the start of
-this  long section falls on an odd page,
-then the \sectionmark directive is ignored and
-the long section name is used instead.
-
-</p><p> The solution is to omit
-the \sectionmark directive altogether and
-instead define: 
-
-</p><p> \section[Short Section]{Long Section Name Goes In Here}
-
-</p><p> THe only problem with this is that "Short Section" is now
-used in the table of contents rather than
-"Long Section Name Goes In Here." This is fixed by 
-including the following in the premable: 
-
-</p><p> \usepackage[toctitles]{titlesec} 
-
 </div> 
