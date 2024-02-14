@@ -61,7 +61,7 @@ img.speaker-profile-img {
    background-color: transparent;
    background: transparent;
    border-color: transparent;
-   
+   font-weight: bold;    
 }
 
 .navbar-xs .navbar-nav > li > a, .navbar-brand {
